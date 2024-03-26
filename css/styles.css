@@ -1,0 +1,102 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    /* Cambiar el color de fondo */
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    /* Centrar contenido */
+}
+
+header,
+footer {
+    background-color: #343a40;
+    /* Cambiar el color de fondo */
+    color: #fff;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    /* Agregar margen inferior */
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+section {
+    padding: 40px 0;
+}
+
+.machine {
+    margin-bottom: 40px;
+    border: 1px solid #ced4da;
+    /* Agregar borde */
+    border-radius: 8px;
+    /* Agregar bordes redondeados */
+    padding: 20px;
+    /* Agregar espacio interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Agregar sombra */
+}
+
+.machine img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.machine h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Estilos para el buscador decorativo */
+.typing-container {
+    display: inline-block;
+    border: 2px solid #007bff;
+    /* Cambiar el color del borde */
+    border-radius: 20px;
+    /* Agregar bordes redondeados */
+    padding: 10px 20px;
+    /* Agregar espacio interno */
+    margin-bottom: 20px;
+    /* Agregar margen inferior */
+}
+
+#typing-text {
+    font-size: 24px;
+    color: #007bff;
+    /* Cambiar el color del texto */
+    font-weight: bold;
+    /* Hacer el texto negrita */
+    text-transform: uppercase;
+    /* Convertir el texto a mayúsculas */
+    letter-spacing: 1px;
+    /* Ajustar espaciado entre letras */
+}
