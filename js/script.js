@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const textElement = document.getElementById('typing-text');
-    const textArray = ["Sitio de Hacking Ético", "Aprende de forma práctica", "Mejora tus habilidades éticamente"];
+    const textArray = ["Sitio de Hacking Ético", "cd CTF", "Aprende de forma práctica", "nano ctf1.txt"];
     let index = 0;
     let letterIndex = 0;
     let currentText = '';
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (index === textArray.length) {
                     index = 0;
                 }
-                setTimeout(type, 1500); // Tiempo de espera después de borrar el texto
+                setTimeout(type, 1500);
                 return;
             }
         } else {
@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
             letterIndex++;
             if (letterIndex > currentText.length) {
                 isDeleting = true;
-                setTimeout(type, 2000); // Tiempo de espera después de escribir el texto completo
+                setTimeout(type, 2000);
                 return;
             }
         }
-        setTimeout(type, 100); // Ajustar la velocidad de escritura
+        setTimeout(type, 100);
     }
 
     type();

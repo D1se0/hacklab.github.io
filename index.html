@@ -4,25 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Máquinas Vulnerables para Hacking Ético</title>
+    <title>Comunidad Hacking Ético</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h1>Máquinas Vulnerables</h1>
-            <h2>¡Aprende Hacking Ético de forma práctica!</h2>
-            <p>Explora nuestras máquinas vulnerables diseñadas para mejorar tus habilidades de seguridad informática de
-                manera ética.</p>
+            <div class="logo">
+                <h1><i class="fas fa-user-secret"></i> CTF - Comunidad Hacking Ético</h1>
+                <p>Aprende hacking ético de manera práctica y segura</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <!--<li><a href="#about">Acerca de</a></li>-->
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">CTFs <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="ctfs.html">CTF Avengers Easy</a>
+                            <a href="ctfs.html">CTF Ciberhack Intermediate</a>
+                            <!--<a href="ctfs.html">CTF 3</a>-->
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section id="hero">
+    <section id="home">
         <div class="container">
-            <!-- Contenedor del buscador decorativo -->
-            <div class="typing-container">
-                <h1 id="typing-text"></h1>
+            <div class="content">
+                <h2>Bienvenido a CTF - Comunidad Hacking Ético</h2>
+                <p>Explora nuestras máquinas vulnerables diseñadas para mejorar tus habilidades de seguridad informática
+                    de manera ética.</p>
+                <br>
+                <a href="ctfs.html" class="btn">Descargar Máquinas</a>
+            </div>
+            <div class="terminal">
+                <p><span class="green">usuario@CTF:</span>~$ <span id="typing-text"></span></p>
             </div>
         </div>
     </section>
@@ -30,34 +53,34 @@
     <section id="about">
         <div class="container">
             <h2>Acerca de Nosotros</h2>
-            <p>Somos un equipo apasionado por la seguridad informática y el hacking ético. Nuestra misión es
-                proporcionar recursos educativos y prácticos para que cualquier persona interesada en la seguridad
-                informática pueda aprender de manera efectiva y ética.</p>
+            <p>Somos una comunidad apasionada por el hacking ético y las competiciones de Capture The Flag. Nuestro
+                objetivo es proporcionar un entorno seguro para aprender y practicar habilidades de seguridad
+                informática.</p>
         </div>
     </section>
-
-    <section id="machines">
+    <!--
+    <section id="ctfs">
         <div class="container">
-            <h2>Nuestras Máquinas Vulnerables</h2>
-            <div class="machine">
-                <img alt="Máquina Vulnerable 1" src="machine1.jpg" />
-                <h3>Máquina Vulnerable 1</h3>
-                <p>Descripción de la máquina vulnerable y los conceptos de seguridad que se pueden aprender al
-                    hackearla.</p>
+            <h2>CTFs Disponibles</h2>
+            <div class="ctf">
+                <h3 id="ctf1">CTF 1</h3>
+                <p>Descripción del CTF 1 y cómo participar.</p>
             </div>
-            <div class="machine">
-                <img alt="Máquina Vulnerable 2" src="machine2.jpg" />
-                <h3>Máquina Vulnerable 2</h3>
-                <p>Descripción de la máquina vulnerable y los conceptos de seguridad que se pueden aprender al
-                    hackearla.</p>
+            <div class="ctf">
+                <h3 id="ctf2">CTF 2</h3>
+                <p>Descripción del CTF 2 y cómo participar.</p>
             </div>
-            <!-- Agrega más máquinas vulnerables según sea necesario -->
+            <div class="ctf">
+                <h3 id="ctf3">CTF 3</h3>
+                <p>Descripción del CTF 3 y cómo participar.</p>
+            </div>
         </div>
     </section>
-
+    -->
     <footer>
-        <div class="container">
-            <p>© 2024 Máquinas Vulnerables - Todos los derechos reservados</p>
+        <div class="container footer-content">
+            <p>© 2024 CTF - Comunidad Hacking Ético - Todos los derechos reservados</p>
+            <p>Desarrollado por <a href="https://tudominio.com" target="_blank">D1se0</a></p>
         </div>
     </footer>
     <script src="js/script.js"></script>
