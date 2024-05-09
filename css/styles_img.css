@@ -1,0 +1,27 @@
+.image-container {
+    max-width: 300px;
+    /* Define el tamaño máximo del contenedor */
+    margin: 0 auto;
+    /* Centra el contenedor horizontalmente */
+}
+
+.image-container img {
+    max-width: 100%;
+    /* Hace que la imagen se ajuste al ancho máximo del contenedor */
+    height: auto;
+    /* Mantiene la proporción de aspecto de la imagen */
+}
+
+.write-up-container {
+    background-color: #001a00;
+    border: 2px solid #7FFF00;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.write-up-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
