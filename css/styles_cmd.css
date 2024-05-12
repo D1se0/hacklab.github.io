@@ -1,0 +1,57 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #00FF00;
+    margin: 0;
+    overflow: hidden;
+}
+
+.terminal {
+    width: 100%;
+    height: 100%;
+    background-image: url('kali_background.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background-color: #001a00;
+    color: #7FFF00;
+    padding: 5px;
+    text-align: center;
+}
+
+.terminal-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.terminal-content {
+    line-height: 1.5;
+}
+
+.input-line {
+    display: flex;
+}
+
+.prompt {
+    color: #00FF00;
+    /* User */
+}
+
+#command-input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+    outline: none;
+}
+
+.close {
+    float: right;
+    /* Alinea el elemento a la derecha */
+    text-decoration: none;
+}
