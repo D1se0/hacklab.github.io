@@ -1,23 +1,23 @@
-# Mi Página Web
+# My Web page
 
 <p align="center">
   <img src="https://github.com/D1se0/hacklab.github.io/assets/164921056/d6a7b1e3-7c51-45f4-8c6c-c8758cb5dc63" alt="Directorybrute" width="400">
 </p>
 
-Bienvenido a mi página web. Este repositorio contiene el código fuente de mi sitio web personal, que está diseñado para mostrar mi portafolio, blog y más.
+Welcome to my website. This repository contains the source code for my personal website, which is designed to display my portfolio, blog, and more.
 
 ---
 
-## Características
+## Characteristics
 
-- **Portafolio:** Muestra mis proyectos y trabajos.
-- **Blog:** Publicaciones regulares sobre temas de hacking ètico.
-- **Responsive Design:** Optimizado para dispositivos móviles y de escritorio.
-- **Fácil de Navegar:** Interfaz limpia y sencilla.
+- **Briefcase:** Show my projects and work.
+- **Blog:** Regular posts on ethical hacking topics.
+- **Responsive Design:** Optimized for mobile and desktop devices.
+- **Easy to Navigate:** Clean and simple interface.
 
 ---
 
-## Tecnologías Utilizadas
+## Used technology
 
 - **HTML5**
 - **CSS3**
@@ -25,7 +25,7 @@ Bienvenido a mi página web. Este repositorio contiene el código fuente de mi s
 
 ---
 
-## Acceso a la pagina
+## Access to the page
 
 ```
 URL = https://d1se0.github.io/hacklab.github.io/
