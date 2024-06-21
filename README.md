@@ -1,7 +1,7 @@
 # Mi Página Web
 
 <p align="center">
-  <img src="https://github.com/D1se0/directorybrute/assets/164921056/e62ade8c-809e-4cd8-be17-c2d751e470d6" alt="Directorybrute" width="400">
+  <img src="https://github.com/D1se0/hacklab.github.io/assets/164921056/d6a7b1e3-7c51-45f4-8c6c-c8758cb5dc63" alt="Directorybrute" width="400">
 </p>
 
 Bienvenido a mi página web. Este repositorio contiene el código fuente de mi sitio web personal, que está diseñado para mostrar mi portafolio, blog y más.
