@@ -1,0 +1,317 @@
+/* Estilos para el menú */
+#menu {
+    background-color: #001a00;
+    color: #7FFF00;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#menu li {
+    position: relative;
+    padding: 10px 20px;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: #7FFF00;
+    padding: 5px;
+    display: block;
+}
+
+#menu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #001a00;
+    padding: 10px;
+    min-width: 200px;
+}
+
+#menu .submenu li {
+    padding: 5px 0;
+}
+
+#menu .submenu li a {
+    color: #7FFF00;
+    display: block;
+}
+
+#menu .submenu.show {
+    display: block;
+}
+
+/* Estilos para el terminal */
+#terminal {
+    background-color: #000;
+    color: #7FFF00;
+    padding: 20px;
+    text-align: left;
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: calc(100vh - 200px);
+    /* Ajusta según la altura de tu menú y footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #001a00;
+    color: #7FFF00;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+/* Oculta el contenido inicialmente */
+.content-item {
+    display: none;
+}
+
+/* Estilos para el contenido */
+#content {
+    padding: 20px;
+    position: relative;
+    /* Agregamos posición relativa para los seudoelementos */
+}
+
+.content-item {
+    display: none;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.content-item h2 {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.content-item p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.content-item code {
+    background-color: #333;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Animación para el cursor */
+@keyframes blink-caret {
+
+    from,
+    to {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+div.command {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #222;
+    font-size: 18px;
+    /* Elimina el margen y la anchura */
+    margin: 0;
+    width: 100%;
+    /* Establece el ancho al 100% */
+    box-sizing: border-box;
+    /* Incluye el relleno y el borde en el ancho total */
+}
+
+.command-container {
+    position: relative;
+}
+
+/*
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Hace el botón transparente */
+/*
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Cambia la opacidad al pasar el ratón */
+/*
+}
+*/
+
+div.command_into {
+    background-color: #535353;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #505050;
+    font-size: 18px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre los elementos */
+}
+
+div.command_into_command {
+    background-color: #6f6f6f;
+    color: #fff;
+    padding: 5px 10px;
+    /* Ajuste del relleno */
+    border-radius: 5px;
+    border: 2px solid #696767;
+    font-size: 18px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    /* Asegura que esté en línea */
+    white-space: nowrap;
+    /* Evita que el contenido se divida en varias líneas */
+}
+
+.icon {
+    width: 24px;
+    /* Tamaño del icono */
+    height: 24px;
+}
+
+div.command_into_command2 {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    /* Ajuste del relleno */
+    border-radius: 5px;
+    border: 2px solid #222;
+    font-size: 18px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    /* Asegura que esté en línea */
+    white-space: nowrap;
+    /* Evita que el contenido se divida en varias líneas */
+}
+
+/* Estilos para el contenido */
+.nmap-box {
+    background-color: #535353;
+    color: #ccc;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+/* Estilos URL de GitHub */
+
+.box {
+    border: 2px solid #7FFF00;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    background-color: #001a00;
+}
+
+.box a {
+    color: #7FFF00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.box a:hover {
+    color: #fff;
+}
+
+.box p {
+    margin: 5px 0;
+}
+
+/* Estilos para el contenido dentro de otro contenido */
+.nmap-box-into {
+    background-color: #2c2c2c;
+    color: #a3a3a3;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+div.command_into_command3 {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #222;
+    font-size: 18px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre los elementos */
+    display: inline-block;
+    /* Asegura que esté en línea */
+    white-space: nowrap;
+    /* Evita que el contenido se divida en varias líneas */
+}
+
+.link-command {
+    text-decoration: none;
+    color: #bdbdbd;
+}
+
+header.menu_security_1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #001a00;
+}
+
+.menu_security {
+    color: #7FFF00;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid #7FFF00;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu_security:hover {
+    background-color: #7FFF00;
+    color: #001a00;
+}
